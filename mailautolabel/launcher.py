@@ -3,7 +3,7 @@ import configparser
 
 import data.connection
 import data.mail
-import ml
+import ml.unsupervised
 
 # read configuration variables from config.ini file
 config = configparser.ConfigParser()
@@ -15,8 +15,10 @@ password = config.get('account', 'password')
 # context manager ensures the session is cleaned up
 with data.connection.open(hostname, username, password, verbose=True) as c:
 	messages = data.mail.get_messages(c, verbose=True)
-
-	# just print to check
+	
+	data={'text': []}
+	
 	for message in messages:
-		for key, value in message.items():
-			print('{:30} : {}'.format(key, value))
+		data['text'].append(message['Body'])
+	
+	ml.unsupervised.get_scores(data)

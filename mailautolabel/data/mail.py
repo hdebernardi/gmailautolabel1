@@ -33,11 +33,16 @@ def get_body(mail):
 		# we should deal with text/html data and attachments later
 		if part.get_content_type() == 'text/plain':
 			str_body = part.get_payload(decode=True)
-			encoding = chardet.detect(str_body)['encoding']
-			str_body = str_body.decode(encoding, errors='ignore')
-			dict_to_return['Body'] = str_body
+			if(str_body):
+				encoding = chardet.detect(str_body)['encoding']
+				str_body = str_body.decode(encoding, errors='ignore')
+				dict_to_return['Body'] = str_body
+
+		if(not 'Body' in dict_to_return or dict_to_return['Body'] == ''):
+			dict_to_return['Body'] = 'RIEN DU TOUT, FAUT TRAITER'
 
 		dict_to_return['Content-type'].append(part.get_content_type())
+
 	return dict_to_return
 
 ################################################################################
