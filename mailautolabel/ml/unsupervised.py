@@ -7,6 +7,7 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.cluster import KMeans
 from sklearn.ensemble import RandomForestClassifier
 
+################################################################################
 def get_scores(data):
 	# on transforme le corpus en une matrice TF-IDF
 	vect = TfidfVectorizer(ngram_range=(1,3), max_df=5, stop_words='english')
