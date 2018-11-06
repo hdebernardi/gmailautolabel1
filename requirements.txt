@@ -3,3 +3,4 @@ chardet
 pandas
 numpy
 sklearn
+bs4
