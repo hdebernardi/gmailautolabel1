@@ -92,7 +92,7 @@ def get_folders(connection, verbose=False):
 	return folders
 
 ################################################################################
-def get_messages(connection, verbose=False):
+def get_mails(connection, verbose=False):
 	all_messages=[]
 	
 	folders = get_folders(connection, verbose)
@@ -128,7 +128,7 @@ def get_messages(connection, verbose=False):
 	return all_messages
 
 
-def get_useful_parts_of_messages(messages, keys=['Message-ID', 'Date', 'From', 'To', 'Subject', 'Body', 'Content-type']):
+def get_useful_parts_of_mails(messages, keys=['Message-ID', 'Date', 'From', 'To', 'Subject', 'Body', 'Content-type']):
 	# we should remove id tests for other mail providers than google
 	all_messages = []
 	ids = []
