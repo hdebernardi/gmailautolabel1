@@ -1,6 +1,6 @@
 import os
 
-#retourne 1 si le fichier "username.csv" est présent, 0 si absent
+#retourne 1 si le fichier "username".csv est présent, 0 si absent
 def isPresent(username):
     #donne le chemin absolu d'où est lancé le script
     root=os.getcwd() 
