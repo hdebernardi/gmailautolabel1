@@ -84,8 +84,8 @@ At this point you should be able to run the script :
 - faire la réorganisation des fichiers
 - fonction qui télécharge uniquement les mails qui ne sont pas présents dans le fichier csv
 
-## Pour Maxime
-- ML supervisé
+### Pour Maxime
+- ML supervisé : rechercher les features.
 
 ## Pour Hippolyte
 - ML supervisé
