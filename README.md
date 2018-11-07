@@ -67,7 +67,7 @@ At this point you should be able to run the script :
   - read csv to dictionnary
   - compare csv file with remote results
 
-## Pour Pierre
+### Pour Pierre
   - connection : hostname, username, password
   - ...
   - csv avec tous les mails [{'id': 'qlqc'...}]
@@ -79,7 +79,7 @@ At this point you should be able to run the script :
     - génération automatique de documentation
     - graphique
 
-## Pour Toni
+### Pour Toni
 - mettre en commun gmail et imap
 - faire la réorganisation des fichiers
 - fonction qui télécharge uniquement les mails qui ne sont pas présents dans le fichier csv
@@ -87,5 +87,5 @@ At this point you should be able to run the script :
 ### Pour Maxime
 - ML supervisé : rechercher les features.
 
-## Pour Hippolyte
+### Pour Hippolyte
 - ML supervisé
