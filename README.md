@@ -61,3 +61,31 @@ At this point you should be able to run the script :
 
 - user interface
   - only if we got time since we already have rich outputs from notebooks !
+
+- csv/
+  - write from dictionnary to csv
+  - read csv to dictionnary
+  - compare csv file with remote results
+
+## Pour Pierre
+  - connection : hostname, username, password
+  - ...
+  - csv avec tous les mails [{'id': 'qlqc'...}]
+  - labels : ['loisirs', 'travail']
+  - score de l'algo
+  - graphiques de l'algo
+  
+  - todo
+    - génération automatique de documentation
+    - graphique
+
+## Pour Toni
+- mettre en commun gmail et imap
+- faire la réorganisation des fichiers
+- fonction qui télécharge uniquement les mails qui ne sont pas présents dans le fichier csv
+
+## Pour Maxime
+- ML supervisé
+
+## Pour Hippolyte
+- ML supervisé
