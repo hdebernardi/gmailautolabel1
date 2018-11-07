@@ -11,7 +11,7 @@ def cheminCsv(username):
     #donne le chemin absolu d'où est lancé le script
     root=os.getcwd() 
     #donne data/username.csv ou data\username.csv si window ou linux
-    rel_path = os.path.join("data",username+".csv")
+    rel_path = os.path.join("data", username+".csv")
     #chemin correcte du fichier
     abs_path = os.path.join(root, rel_path)
     return abs_path   
@@ -58,7 +58,7 @@ def csvToList(username):
     '''
 
 ################################################################################
-def save_mails_csv(username, mails):
+def save_mails(username, mails):
 	filename = cheminCsv(username)
 	try:
 		file = open(filename, 'r')
