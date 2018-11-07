@@ -127,20 +127,20 @@ def get_mails(connection, verbose=False):
 
 	return all_messages
 
+################################################################################
+def get_useful_parts_of_mails(mails):
+	all_mails = []
 
-def get_useful_parts_of_mails(messages, keys=['Message-ID', 'Date', 'From', 'To', 'Subject', 'Body', 'Content-type']):
-	# we should remove id tests for other mail providers than google
-	all_messages = []
-	ids = []
+	data = [[k,v] for mail in mails for k, v in mail.items()] 
 
-	for message in messages:
-		if message['Message-ID'] not in ids:
-			filtered_msg = {}
-			for k, v in message.items():
-				if k in keys:
-					filtered_msg[k] = v
+	keys = [data_[0] for data_ in data]
+	keys = sorted(list(set(keys)))
+
+	for mail in mails:
+		mail_obj = {}
+		for key in keys:
+			mail_obj[key] = mail.get(key, None)
 				
-			all_messages.append(filtered_msg)
-			ids.append(message['Message-ID'])
+		all_mails.append(mail_obj)
 			
-	return all_messages
+	return all_mails

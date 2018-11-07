@@ -43,7 +43,7 @@ def save_mails_csv(username, mails):
 		file = open(filename, 'r')
 	except IOError:
 		file = open(filename, 'w')
-	
+
 	keys = mails[0].keys()
 	with open(filename, 'w') as csvfile:
 		writer = csv.DictWriter(csvfile, keys)
@@ -55,7 +55,7 @@ def save_mails_csv(username, mails):
 with imap.connection.open(hostname, username, password, verbose=True) as c:
 	full_mails = imap.mail.get_mails(c, verbose=True)
 	mails = imap.mail.get_useful_parts_of_mails(full_mails)
-	
+
 	save_mails_csv(username, mails)
-	show_mails(mails)
+	#show_mails(mails)
 	apply_ml(mails)
