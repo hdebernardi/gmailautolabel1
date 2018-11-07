@@ -15,15 +15,12 @@ Then just navigate at the root of this project and run :
   - source env/bin/activate
   - make
 
-Configure the connection editing :
-  - mailautolabel/data/config.ini
-    - by default that configuration should work !
-      - hostname: imap.gmail.com
-      - username: m1.autolabel1@gmail.com
-      - password: m1-luminy
-
 At this point you should be able to run the script :
   - python3 mailautolabel/launcher.py
+  
+The script is running and you have two choice:  
+  Enter 0: for choose a default adress mail
+  Enter 1: for choose your adress mail
 
 ## Todo, to improve
 
