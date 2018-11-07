@@ -1,4 +1,5 @@
 import csv
+import os
 
 #######################################################################
 #return the absolute path of the file "username".csv
@@ -10,7 +11,7 @@ def get_path(username):
     """
     return the absolute path of the file "username".csv
     Note: 
-    cheminFich = 'data/{}.csv'.format(username) 
+    filepath = 'data/{}.csv'.format(username) 
     It works but not portable on all OS
     """
     # gives the absolute path from where the script is started
@@ -27,7 +28,7 @@ def is_present(username):
     """
     return 1 if path "username".csv is present, 0 if absent
     """
-    filepath = get_path(username)
+    filepath = get_path(username) 
     #we test if the file is present while trying to open it
     try:
         with open(filepath): pass
@@ -55,14 +56,14 @@ def to_dict(username):
 
 ################################################################################
 def save_mails(username, mails):
-	filename = cheminCsv(username)
+	filepath = get_path(username)
 	try:
-		file = open(filename, 'r')
+		file = open(filepath, 'r')
 	except IOError:
-		file = open(filename, 'w')
+		file = open(filepath, 'w')
 	
 	keys = mails[0].keys()
-	with open(filename, 'w') as csvfile:
+	with open(filepath, 'w') as csvfile:
 		writer = csv.DictWriter(csvfile, keys)
 		writer.writeheader()
 		writer.writerows(mails)
