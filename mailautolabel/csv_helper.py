@@ -1,14 +1,13 @@
-import os
 import csv
 
 #######################################################################
-#renvoi le chemin absolu du fichier "username".csv
-#Remaque: 
+#return the absolute path of the file "username".csv
+#Note: 
 # cheminFich = 'data/{}.csv'.format(username) 
-#Cela fonctionne mais pas portable sur tous les os
+#It works but not portable on all OS
 
 def cheminCsv(username):
-    #donne le chemin absolu d'où est lancé le script
+    #gives the absolute path from where the script is started
     root=os.getcwd() 
     #donne data/username.csv ou data\username.csv si window ou linux
     rel_path = os.path.join("data", username+".csv")
@@ -18,27 +17,27 @@ def cheminCsv(username):
 
 
 #######################################################################
-#retourne 1 si le fichier "username".csv est présent, 0 si absent
+#return 1 if path "username".csv is present, 0 if absent
 def isPresent(username):
     cheminFich = cheminCsv(username = username)
-    #on test si le fichier est présent en tentant de l'ouvrir
+    #we test if the file is present while trying to open it
     try:
         with open(cheminFich): pass
     except IOError:
-        return 0 #fichier absent
+        return 0 #file absent
 
-    return 1 #fichier présent
+    return 1 #file present
 
 
 ######################################################################
-#retourne une liste à partir d'un fichier csv
-def csvToList(username):
-    list = [] #on crée une liste vide
+#returns a dictionary from a csv file
+def csvToDict(username):
+    list = [] #void list
     cheminFich = cheminCsv(username = username)
 
     with open(cheminFich, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
-        #on parcourt chaque lignes du fichier csv
+        #we go through each line of the csv file
         for row in reader:            
             list.append(row)
     
