@@ -63,8 +63,8 @@ At this point you should be able to run the script :
   - only if we got time since we already have rich outputs from notebooks !
 
 - csv/
-  - write from dictionnary to csv
-  - read csv to dictionnary
+  FAIT - write from dictionnary to csv 
+  FAIT - read csv to dictionnary
   - compare csv file with remote results
 
 ### Pour Pierre
