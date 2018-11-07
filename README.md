@@ -23,7 +23,7 @@ Configure the connection editing :
       - password: m1-luminy
 
 At this point you should be able to run the script :
-  - python mailautolabel/launcher.py
+  - python3 mailautolabel/launcher.py
 
 ## Todo, to improve
 
