@@ -17,7 +17,7 @@ def get_scores(data):
 	X.shape
 
 	# Application de KMeans
-	N_CLUSTERS = 5
+	N_CLUSTERS = 2
 	kmeans = KMeans(n_clusters=N_CLUSTERS)
 	kmeans.fit(X)
 

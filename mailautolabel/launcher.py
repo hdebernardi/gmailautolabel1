@@ -56,6 +56,6 @@ with imap.connection.open(hostname, username, password, verbose=True) as c:
 	full_mails = imap.mail.get_mails(c, verbose=True)
 	mails = imap.mail.get_useful_parts_of_mails(full_mails)
 	
-	save_mails_csv(username, mails)
+	#save_mails_csv(username, mails)
 	show_mails(mails)
-	apply_ml(mails)
+	#apply_ml(mails)

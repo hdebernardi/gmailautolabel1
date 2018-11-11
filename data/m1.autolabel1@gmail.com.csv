@@ -1,96 +1,130 @@
-From,To,Subject,Date,Message-ID,Content-type,Body
-GARCIA Toni <toni.garcia@etu.univ-amu.fr>,"""m1.autolabel1@gmail.com"" <m1.autolabel1@gmail.com>",TEST1,"Sun, 21 Oct 2018 00:17:56 +0000","
- <MR2P264MB069294C0979B62AFE47A8F11F7FB0@MR2P264MB0692.FRAP264.PROD.OUTLOOK.COM>","['multipart/alternative', 'text/plain', 'text/html']","CECI EST LE CONTENU DU MESSAGE TEST 1
+Folder,Flags,Delivered-To,Received,X-Google-Smtp-Source,X-Received,ARC-Seal,ARC-Message-Signature,ARC-Authentication-Results,Return-Path,Received-SPF,Authentication-Results,DKIM-Signature,From,To,Subject,Thread-Topic,Thread-Index,Date,Message-ID,Accept-Language,Content-Language,authentication-results,x-originating-ip,x-ms-publictraffictype,x-microsoft-exchange-diagnostics,x-ms-exchange-antispam-srfa-diagnostics,x-ms-office365-filtering-correlation-id,x-microsoft-antispam,x-ms-traffictypediagnostic,x-microsoft-antispam-prvs,x-exchange-antispam-report-test,x-ms-exchange-senderadcheck,x-exchange-antispam-report-cfa-test,x-forefront-prvs,x-forefront-antispam-report,received-spf,x-microsoft-antispam-message-info,spamdiagnosticoutput,spamdiagnosticmetadata,Content-Type,MIME-Version,X-OriginatorOrg,X-MS-Exchange-CrossTenant-Network-Message-Id,X-MS-Exchange-CrossTenant-originalarrivaltime,X-MS-Exchange-CrossTenant-fromentityheader,X-MS-Exchange-CrossTenant-id,X-MS-Exchange-Transport-CrossTenantHeadersStamped,Content-type,Body
+INBOX,['Seen'],m1.autolabel1@gmail.com,"by 2002:a02:4d02:0:0:0:0:0 with SMTP id l2-v6csp1020998jab;
+        Sat, 20 Oct 2018 17:18:01 -0700 (PDT)",ACcGV62Gj2EKkgdx3yIz4NaQRIFB3gpvQNoTwoEH85mr9z2rljSPMubr+hX/TDhweaiWBqpBkQG1,"by 2002:a63:ef0b:: with SMTP id u11-v6mr37774362pgh.283.1540081081599;
+        Sat, 20 Oct 2018 17:18:01 -0700 (PDT)","i=1; a=rsa-sha256; t=1540081081; cv=none;
+        d=google.com; s=arc-20160816;
+        b=JneNd/JB4RclMocxtDaY6tbpN1VSkqIo5fqaKizi4Ih/Mw58UbclHOKL5opZh97nVy
+         GQKhUetlVLMOI9ql2zuX56XewMSgsqyofPSYLcH6kR/KPa7Ui8D2hSvOHr0qBUFoiLw3
+         3fulOsHfk3bdGvStEWSWFoHJNIl+zhKjW+bQux91R+MbqkezYd1+T2/RewX4yYoa3GBd
+         3b8Q4dGgIKvLbRoXbBIX0++LLw9yS8JYSturwMHk5h6OW3Om6C7U1Q1ZbsCeJ27P+Yg/
+         2wkHggPRf8RELSyB/rGv7WhT/iRX3D0709lNa1QcTjVAXhuxu0bs6WhwKe1OFdEa7Pds
+         s8YQ==","i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:spamdiagnosticmetadata:spamdiagnosticoutput
+         :content-language:accept-language:message-id:date:thread-index
+         :thread-topic:subject:to:from:dkim-signature;
+        bh=yPee7uRyToq7Rj3cSq23QKgYVrWvUgXYXyQy3I5oMqU=;
+        b=ZuFI9tYEzYSECj2tR7pDTcp4IRpIYWgBkPcvmiTG9XsWAnKMysZYO6pYk4/xdXjg/0
+         ts0RZ+J7kGtkO2NKKfIxWszQbMPrTIR4bzgAS7rsMU0wkSd7ghR7oep4C3ZiW3jTjWZC
+         9RfH3xZeMgMP8p9FQGh8kr9gMWn1I3cqT10FiiWQ+CDf+/zGr1IC5bfA1JEPvM8pDi4m
+         rw3E8iqmjycJGTSVISzAVltb1FteyxAnu/vseIK9pg+wEaBioyp/JZt1pycoMd6FDOyG
+         YLi/isQ+EWavF4JW9PXP5HDLfcJL4zM3MEAOY33R/00phDRDaFduzXirPEko+/rE8K+A
+         Piyw==","i=1; mx.google.com;
+       dkim=pass header.i=@AixMarseilleUniversite.onmicrosoft.com header.s=selector1-etu-univamu-fr02b header.b=oGYVMEOk;
+       spf=pass (google.com: domain of toni.garcia@etu.univ-amu.fr designates 40.107.9.111 as permitted sender) smtp.mailfrom=toni.garcia@etu.univ-amu.fr;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=univ-amu.fr",<toni.garcia@etu.univ-amu.fr>,pass (google.com: domain of toni.garcia@etu.univ-amu.fr designates 40.107.9.111 as permitted sender) client-ip=40.107.9.111;,"mx.google.com;
+       dkim=pass header.i=@AixMarseilleUniversite.onmicrosoft.com header.s=selector1-etu-univamu-fr02b header.b=oGYVMEOk;
+       spf=pass (google.com: domain of toni.garcia@etu.univ-amu.fr designates 40.107.9.111 as permitted sender) smtp.mailfrom=toni.garcia@etu.univ-amu.fr;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=univ-amu.fr","v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=AixMarseilleUniversite.onmicrosoft.com; s=selector1-etu-univamu-fr02b;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yPee7uRyToq7Rj3cSq23QKgYVrWvUgXYXyQy3I5oMqU=;
+ b=oGYVMEOkZGSpcgUjWMlRmx3RRPv1z+GvFRQfwMGnA/XCyPq+KuUUeSZfbW+yymvh71wSVVkplf0WJWkYOeKP+/QPLtI1x/F9gj8gRGFObysprQBF17wNBX7Ecg4jZ0mwByS1CZ5t3WxxcvH7nM98ekwlxPN8O7OdTB92yJzoN3w=",GARCIA Toni <toni.garcia@etu.univ-amu.fr>,"""m1.autolabel1@gmail.com"" <m1.autolabel1@gmail.com>",TEST1,TEST1,AQHUaNN6/ZM922q7806bSVJi9Vg8CA==,"Sun, 21 Oct 2018 00:17:56 +0000","
+ <MR2P264MB069294C0979B62AFE47A8F11F7FB0@MR2P264MB0692.FRAP264.PROD.OUTLOOK.COM>","fr-FR, en-US",fr-FR,"mx.google.com;
+       dkim=pass header.i=@AixMarseilleUniversite.onmicrosoft.com header.s=selector1-etu-univamu-fr02b header.b=oGYVMEOk;
+       spf=pass (google.com: domain of toni.garcia@etu.univ-amu.fr designates 40.107.9.111 as permitted sender) smtp.mailfrom=toni.garcia@etu.univ-amu.fr;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=univ-amu.fr",[78.222.149.58],Email,"
+ 1;MR2P264MB0004;6:bwdaHGXQKUdfgafShUhw3WwgPcHxqHk6TDeteK9U2A9PhLH7X71a+3wggFk96aH+0bOcwZQR/g/GMmOci0zrGiXzGUfmdP7RLjsaZJqY08izlo/SSizFO7hM+AQhsp0Iydfaif/38xKjjQ28rJ3JXmhQD5Prhb7PiZQ1DiiUtDnMMj4lMfU6jg7QNbEokr00cbjo6l4CKGHLWWkxJaIHwuETU+zm2w3p4hVL4i2Ct6bS8+hh+vCL/ZT34UvkxhHo2U37obAHOIhame+2fXN9g6NfMDrNIrSmKIYNgdGblw3lkvRTeU95sSMuMiRjl9T2WVlSFwQkjUgdmZ9eutBg8wbkLA5PWHK9kztv2B2oz9Ip2gxiDfJHBFj9XgEMkOd0XB99qoros7ki6vRY72ed+GhZbqygW6HT8rGxw6oSVCP7jRkRNXU3lfFEEF+iAzg4mykwOgqqM7cX8Ga3TpVQLw==;5:6JTpHwL3WBfYGpFhR39OepbLshhqrmmNzzgCRfMKeLgGUsfhnoPbgpqB6dhhj/WXVR+F2qTyWXAFQV8NYPiPq+EwAmri6+z9QWanRLFIFzREODWLXfKes4R/8aGLwdAdGTwVzP2JINzc5nYG3TceofIXgYvOfLKh4n5nMJFiVBc=;7:IoGcLYRrDnll6Pl/AdthoBVxnHoTKxinzbbNRWxNzREqZ20QqGEm/Ahvrfly/WJdd6lM81T/d6LoRFj4mUeUQogZzcjOkw9lChVXM5kbn//RPvMyBYlGe4eYlyGcTXTZQV5ChKOYcYXwOMoIf5TYnOmc2Z6PxBgOGDwnOw8OFSmrcUDHzmhMJXR2TFjV7fOIqx6xSGuIeCb43UlvDC9g9mTqOGqsna/jUXXdvu7fOgMQSQvIV2oLRu9wiQ+Q8msf",SOS;,6bd902c1-f992-4584-ba49-08d636eaa684,"
+ BCL:0;PCL:0;RULEID:(7020095)(4652040)(8989299)(5600074)(711020)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(2017052603328)(7153060)(7193020);SRVR:MR2P264MB0004;",MR2P264MB0004:,"
+ <MR2P264MB00043AD26F3A53DF999EDAC3F7FB0@MR2P264MB0004.FRAP264.PROD.OUTLOOK.COM>",UriScan:;,1,"
+ BCL:0;PCL:0;RULEID:(6040522)(2401047)(8121501046)(5005006)(93006095)(93001095)(3231355)(944501410)(52105095)(10201501046)(3002001)(148016)(149066)(150057)(6041310)(20161123560045)(20161123564045)(20161123562045)(20161123558120)(201703131423095)(201702281529075)(201702281528075)(20161123555045)(201703061421075)(201703061406153)(201708071742011)(7699051)(76991095);SRVR:MR2P264MB0004;BCL:0;PCL:0;RULEID:;SRVR:MR2P264MB0004;",083289FD26,"
+ SFV:NSPM;SFS:(10019020)(39850400004)(366004)(376002)(346002)(136003)(396003)(199004)(189003)(53936002)(74316002)(9686003)(54896002)(97736004)(25786009)(478600001)(2906002)(6436002)(5660300001)(5640700003)(55016002)(558084003)(2501003)(7736002)(256004)(7116003)(186003)(476003)(86362001)(486006)(68736007)(19627405001)(81156014)(8936002)(81166006)(8676002)(39060400002)(786003)(316002)(33656002)(1361003)(6606003)(2900100001)(6506007)(6916009)(74482002)(71190400001)(105586002)(106356001)(71200400001)(14454004)(2351001)(5250100002)(102836004)(7696005)(588024002)(99286004)(26005)(66066001)(6116002)(3846002);DIR:OUT;SFP:1102;SCL:1;SRVR:MR2P264MB0004;H:MR2P264MB0692.FRAP264.PROD.OUTLOOK.COM;FPR:;SPF:None;LANG:fr;PTR:InfoNoRecords;A:0;MX:1;",pass (google.com: domain of toni.garcia@etu.univ-amu.fr designates 40.107.9.111 as permitted sender) client-ip=40.107.9.111;,"
+ mJ1la6nvtaUy/WbE8uYhMi5rkr1KFeNswN5Wc/ZXVrBI9BRMs3isb7I2OK7E7Dxx7TqqBSAM/ZzxRbOmheG2Itliu5RlWPCF2AIVjAkj5twZNknMvt6vOZ7iO6ETMsnSow52r5plNGil605ZmPi+Uzm5oZMhywTw+0YuVNehXOVNouxUOuCxS9abfDt5SMD2UvEy2iK/vJqH3s5Yl+gQDGtfTxjEabjLpMDb7pig/LiX7EXKxnfMUiqKV6fXu7GshDEgMCNL2p/CNPI3zNufXOYd5bNYJ24stWEgCKtgveywi4IeH2tVVDmQX6SXQZ1OZvyGFAynhZWIIwolpYcH/R8TtVBWI0PWT9/hMBVFmr0=",1:99,NSPM,"multipart/alternative;
+	boundary=""_000_MR2P264MB069294C0979B62AFE47A8F11F7FB0MR2P264MB0692FRAP_""",1.0,etu.univ-amu.fr,6bd902c1-f992-4584-ba49-08d636eaa684,"21 Oct 2018 00:17:56.1576
+ (UTC)",Hosted,a9f1c4f7-38f4-4d38-8a3c-4b6dbe981cea,MR2P264MB0004,"['multipart/alternative', 'text/plain', 'text/html']","CECI EST LE CONTENU DU MESSAGE TEST 1
 "
-GARCIA Toni <toni.garcia@etu.univ-amu.fr>,"""m1.autolabel1@gmail.com"" <m1.autolabel1@gmail.com>",TEST2,"Sun, 21 Oct 2018 00:18:09 +0000","
- <MR2P264MB0692A40A875D9E34EBBA5B0EF7FB0@MR2P264MB0692.FRAP264.PROD.OUTLOOK.COM>","['multipart/alternative', 'text/plain', 'text/html']","CECI EST LE CONTENU DU MESSAGE TEST 2
+INBOX,['Seen'],m1.autolabel1@gmail.com,"by 2002:a02:4d02:0:0:0:0:0 with SMTP id l2-v6csp1021078jab;
+        Sat, 20 Oct 2018 17:18:13 -0700 (PDT)",AJdET5d2EuxcICA+vAF0Ug+zwP16Gp5SSLkFsLfwoB1QQ5KCYzGiBA/OJ2fSbsDxxnexe2vBnfw+,"by 2002:a17:902:558f:: with SMTP id g15-v6mr2319635pli.263.1540081093356;
+        Sat, 20 Oct 2018 17:18:13 -0700 (PDT)","i=1; a=rsa-sha256; t=1540081093; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Fna5gVbDrhjbkBrh9vIH4VWY+j0k0Z5W6eC551lmS/+ntf5TrAgvB4shZMKY+dTbU4
+         pJ338AOBhKd3zldyF7wkuBp4Av00EN4tbbSqhiDLDgq8Mlu4alLA3nP8YrjFChQyB+vg
+         VixZT9qzYMs+nt5HqrvklU4sxQ1Ci0S0TwqZE09sG+WbwS4RA4xNyI5IrGsLxxNQveDc
+         qzSejgVFE01ikrostbcFj8vIp04rhwkLqw4MyWCLpAZJL0QsWpl54tP+nHae8A5CsiEM
+         fxRfCl4nJNUdOBFsp1s6mEi/FGGO5cn2qbMj+KRw8Ur0M6fjL+S6Byr8LWs/np8nC12y
+         95eQ==","i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:spamdiagnosticmetadata:spamdiagnosticoutput
+         :content-language:accept-language:message-id:date:thread-index
+         :thread-topic:subject:to:from:dkim-signature;
+        bh=tvt8F3EFccNuJ+FlU0N212IHzhleuI+S6aJZh05VeD8=;
+        b=DbEAYJ77XTNnkuGPOYzQptHV6K8l8WxKRwltF440mz6p2BoMTamYXqr9oUj4sdSeZ9
+         qlZ9jsKbA/4ahflGLeZybPamfUa1OhiIZDYdZiiP2rSCkJmXtaL+NTT5a3YLD1ZUd6xW
+         20hE3jWO0Vf1Qax46qOc73AAZ9pFlldl7i2038yzkRRetFHmDUBkngcpfVAYSCQ+YnxT
+         guN8BtnCxXwkhXhoDnT1hw0tb7ArFvLhPBz31VBQ8AYwJHAWxmHZSjCwB4lkvn1X3yux
+         L2RzkVHdN4k6cX/FEbJ2cS85q9n/4EokxlS9ynftSsY5/hFLpMuS3ex8GCQ1mJSGVTTX
+         yaSg==","i=1; mx.google.com;
+       dkim=pass header.i=@AixMarseilleUniversite.onmicrosoft.com header.s=selector1-etu-univamu-fr02b header.b=BXBb7qpx;
+       spf=pass (google.com: domain of toni.garcia@etu.univ-amu.fr designates 40.107.9.110 as permitted sender) smtp.mailfrom=toni.garcia@etu.univ-amu.fr;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=univ-amu.fr",<toni.garcia@etu.univ-amu.fr>,pass (google.com: domain of toni.garcia@etu.univ-amu.fr designates 40.107.9.110 as permitted sender) client-ip=40.107.9.110;,"mx.google.com;
+       dkim=pass header.i=@AixMarseilleUniversite.onmicrosoft.com header.s=selector1-etu-univamu-fr02b header.b=BXBb7qpx;
+       spf=pass (google.com: domain of toni.garcia@etu.univ-amu.fr designates 40.107.9.110 as permitted sender) smtp.mailfrom=toni.garcia@etu.univ-amu.fr;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=univ-amu.fr","v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=AixMarseilleUniversite.onmicrosoft.com; s=selector1-etu-univamu-fr02b;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tvt8F3EFccNuJ+FlU0N212IHzhleuI+S6aJZh05VeD8=;
+ b=BXBb7qpxYJZYG+3QU3o1v3/eUbuI39dE+A1/rAAt+BPWH25f4YFHLMY+5DYyfx/pka/u0hIP45xWb9rPbn+A+LUZcBiL+PYX5UrSAAfZ1AZdilyED/+qsBpKtU9qvhM3SY+TOlgx1f+WDq4zB/7xCzlx5T63Pifmkng8KFnPunQ=",GARCIA Toni <toni.garcia@etu.univ-amu.fr>,"""m1.autolabel1@gmail.com"" <m1.autolabel1@gmail.com>",TEST2,TEST2,AQHUaNOLj5naP3VyDEKj2sUg8O5M9g==,"Sun, 21 Oct 2018 00:18:09 +0000","
+ <MR2P264MB0692A40A875D9E34EBBA5B0EF7FB0@MR2P264MB0692.FRAP264.PROD.OUTLOOK.COM>","fr-FR, en-US",fr-FR,"mx.google.com;
+       dkim=pass header.i=@AixMarseilleUniversite.onmicrosoft.com header.s=selector1-etu-univamu-fr02b header.b=BXBb7qpx;
+       spf=pass (google.com: domain of toni.garcia@etu.univ-amu.fr designates 40.107.9.110 as permitted sender) smtp.mailfrom=toni.garcia@etu.univ-amu.fr;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=univ-amu.fr",[78.222.149.58],Email,"
+ 1;MR2P264MB0004;6:+/ncjMkhVa8GUaK/E8VPEWdf1iGhqrq/OtLONBVMdzkkib0KQxm+KeEJzf6+eLit60EpL82+0IH/fwyo3l5EqadOprQlJSvaZnOH1ces63FJH5JjetonobpvHkPCodu1B619hg6PKqkVASPmCBGYWpgPDdys/irhLa4H/4VYhNKv9pde8VTiHZzbDvQqWquQ8ZYJByeUCMT55cieKs1ll6WehdJU5CncY19eahacwR2/m4Pdjm1yhdiB8yZlCC7L7J6BxBA58tPrefYZKRTH3N9GMqHrTMLqFHCq9u//iG72VNeIoP1o3P8T/XygoJ+mNza7hb+J8z0CE3J+niuOhc7y6bR7p61RRAi+y6/MsRIJxtcEx20t0ov5bMXCDB0stWna+km83FNj5UruNgmz36mCGwWgbBjDJAVfGGIEXxyXZ29MtSY2zcIteWhLscLuVWcBKY7yj49ZMmU74Ad+CA==;5:GXhTj26u2X/gUjmBuX1Asf8r1FpCwKVM3YNzq8G3ypmBcZWKea9n0QrblSl/jcWqNJzZAIXoOjORo176rJTWS8Vj/WCTda31NXDqRan8R3BoB7e9wd4J8h1iP8CCrkg22aoxows+vuPUxH3v4i7lNWq8lwKHdNuEepWC4Ym436M=;7:HlmzwxHm6HAERyIX2iVlTpHKVthVAwxPTlLAuDdsqsoIwv2P90HLbeZ/WlFhtZaNTw99ucckKj/p/LQLvUfzKGf8jpdvQ2QX/gZwDga1j5EqhaD+CUOfNzvWFsC5UxklzicjZhuS5wPFmNtjpGojLE07ZEmk4fczSBQriuSLmWGFBjY7wWSGWGcx5RK4Cbg8i01In2RZbaxcNCr71jRU3f7Zxx5duMJoFt5pq/vdlWrNQhKCAB+7H4Seb99Tx2by",SOS;,dd30b130-b91e-4ceb-125f-08d636eaae98,"
+ BCL:0;PCL:0;RULEID:(7020095)(4652040)(8989299)(5600074)(711020)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(2017052603328)(7153060)(7193020);SRVR:MR2P264MB0004;",MR2P264MB0004:,"
+ <MR2P264MB00046AB7141FB06FED57D714F7FB0@MR2P264MB0004.FRAP264.PROD.OUTLOOK.COM>",UriScan:;,1,"
+ BCL:0;PCL:0;RULEID:(6040522)(2401047)(8121501046)(5005006)(93006095)(93001095)(3231355)(944501410)(52105095)(10201501046)(3002001)(148016)(149066)(150057)(6041310)(20161123560045)(20161123564045)(20161123562045)(20161123558120)(201703131423095)(201702281529075)(201702281528075)(20161123555045)(201703061421075)(201703061406153)(201708071742011)(7699051)(76991095);SRVR:MR2P264MB0004;BCL:0;PCL:0;RULEID:;SRVR:MR2P264MB0004;",083289FD26,"
+ SFV:NSPM;SFS:(10019020)(39850400004)(366004)(376002)(346002)(136003)(396003)(199004)(189003)(53936002)(74316002)(9686003)(54896002)(97736004)(25786009)(478600001)(2906002)(6436002)(5660300001)(5640700003)(55016002)(558084003)(2501003)(7736002)(256004)(7116003)(186003)(476003)(86362001)(486006)(68736007)(19627405001)(81156014)(8936002)(81166006)(8676002)(39060400002)(786003)(316002)(33656002)(1361003)(6606003)(2900100001)(6506007)(6916009)(74482002)(71190400001)(105586002)(106356001)(71200400001)(14454004)(2351001)(5250100002)(102836004)(7696005)(588024002)(99286004)(26005)(66066001)(6116002)(3846002);DIR:OUT;SFP:1102;SCL:1;SRVR:MR2P264MB0004;H:MR2P264MB0692.FRAP264.PROD.OUTLOOK.COM;FPR:;SPF:None;LANG:fr;PTR:InfoNoRecords;A:0;MX:1;",pass (google.com: domain of toni.garcia@etu.univ-amu.fr designates 40.107.9.110 as permitted sender) client-ip=40.107.9.110;,"
+ Qhp7BFTBba3hjOxAeQLajnsWYkwwU59C+/lhNqIIlSXl5/bTav6MyJmBiV7FrMxWW+EI2NrgolTZCUVVbXNSBEOXFohBHeYJV+zSLCcXBueyrO/5s/QtScoh7+fUODYKuvKpCSoKTcco9AGr4TQ8Lu1p6qqLozoSX2x9VGj2CdW61qPRTMuYpcYKKGgYca2OIPNVDnnryQG7XRrW4YScLMyi5DUzJGPLikeallSfgA1SB1WE9b2punoQOQAhrXYNqVhBIniAu6EJ7u8nHTep0tOCQiH6kN3wR0czin50Bt8rtjn/bL75cocuVrM9ih4EMNwyDqzsV5MAaTZvwvJctCxNUGeAXepZSqzvacMBs0I=",1:99,NSPM,"multipart/alternative;
+	boundary=""_000_MR2P264MB0692A40A875D9E34EBBA5B0EF7FB0MR2P264MB0692FRAP_""",1.0,etu.univ-amu.fr,dd30b130-b91e-4ceb-125f-08d636eaae98,"21 Oct 2018 00:18:09.7411
+ (UTC)",Hosted,a9f1c4f7-38f4-4d38-8a3c-4b6dbe981cea,MR2P264MB0004,"['multipart/alternative', 'text/plain', 'text/html']","CECI EST LE CONTENU DU MESSAGE TEST 2
 "
-GARCIA Toni <toni.garcia@etu.univ-amu.fr>,"""m1.autolabel1@gmail.com"" <m1.autolabel1@gmail.com>",Test3,"Sun, 21 Oct 2018 00:18:30 +0000","
- <MR2P264MB069216502257B5C6ECD72F0DF7FB0@MR2P264MB0692.FRAP264.PROD.OUTLOOK.COM>","['multipart/alternative', 'text/plain', 'text/html']","CECI EST LE CONTENU DU MESSAGE TEST 3
-"
-Google <no-reply@accounts.google.com>,m1.autolabel1@gmail.com,Alerte de sécurité critique,"Tue, 6 Nov 2018 14:43:31 +0000 (UTC)",<4zCAsb5MxzlwnvWITmgr-A.0@notifications.google.com>,"['multipart/alternative', 'text/plain', 'text/html']","GmailAutoLabel1 M1Luminy
-
-Tentative de connexion bloquée
-m1.autolabel1@gmail.com
-Quelqu'un vient d'utiliser votre mot de passe pour essayer de se connecter
-à votre compte à partir d'une application n'appartenant pas à Google. Nous
-avons bloqué cette personne, mais nous vous conseillons de vérifier ce qui
-s'est passé. Examinez l'activité de votre compte pour vous assurer que
-personne d'autre n'y a accès.
-
-
-
-Consulter l'activité
-<https://accounts.google.com/AccountChooser?Email=m1.autolabel1@gmail.com&continue=https://myaccount.google.com/alert/nt/1541515411000?rfn%3D27%26rfnc%3D1%26eid%3D-383692815362607925%26et%3D0%26asae%3D2%26anexp%3Dgivab-fa>
-<https://accounts.google.com/AccountChooser?Email=m1.autolabel1@gmail.com&continue=https://myaccount.google.com/alert/nt/1541515411000?rfn%3D27%26rfnc%3D1%26eid%3D-383692815362607925%26et%3D0%26asae%3D2%26anexp%3Dgivab-fa>
-
-
-Vous avez reçu cet e-mail pour vous informer de modifications importantes
-apportées à votre compte et aux services Google que vous utilisez.
-© 2018 Google LLC,1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-1541515411000000
-"
-Google <no-reply@accounts.google.com>,m1.autolabel1@gmail.com,Alerte de sécurité,"Tue, 6 Nov 2018 14:44:24 +0000 (UTC)",<Dr2pphl5JaOb7QrwC8exuQ.0@notifications.google.com>,"['multipart/alternative', 'text/plain', 'text/html']","GmailAutoLabel1 M1Luminy
-
-Connexion sur un nouvel appareil
-m1.autolabel1@gmail.com
-Un utilisateur vient de se connecter à votre compte Google à partir d'un
-nouvel appareil Linux. Nous vous envoyons cet e-mail pour vérifier qu'il
-s'agit bien de vous.
-
-
-
-Consulter l'activité
-<https://accounts.google.com/AccountChooser?Email=m1.autolabel1@gmail.com&continue=https://myaccount.google.com/alert/nt/1541515464000?rfn%3D31%26rfnc%3D1%26eid%3D-4850794216812697405%26et%3D0%26asae%3D2%26anexp%3Dgivab-fa--hsc-control_b>
-<https://accounts.google.com/AccountChooser?Email=m1.autolabel1@gmail.com&continue=https://myaccount.google.com/alert/nt/1541515464000?rfn%3D31%26rfnc%3D1%26eid%3D-4850794216812697405%26et%3D0%26asae%3D2%26anexp%3Dgivab-fa--hsc-control_b>
-
-
-Vous avez reçu cet e-mail pour vous informer de modifications importantes
-apportées à votre compte et aux services Google que vous utilisez.
-© 2018 Google LLC,1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-1541515464000000
-"
-Google <no-reply@accounts.google.com>,m1.autolabel1@gmail.com,Alerte de sécurité critique,"Tue, 6 Nov 2018 14:44:31 +0000 (UTC)",<dM0-2Mjh7Tvb0fNaD6zTzg.0@notifications.google.com>,"['multipart/alternative', 'text/plain', 'text/html']","GmailAutoLabel1 M1Luminy
-
-Le paramètre relatif à l'accès pour les applications moins sécurisées a été
-activé
-m1.autolabel1@gmail.com
-Le paramètre relatif à l'accès pour les applications moins sécurisées a été
-activé pour votre compte Google m1.autolabel1@gmail.com. Si vous n'êtes pas
-à l'origine de cette autorisation, nous vous conseillons de vérifier ce qui
-s'est passé.
-
-
-
-Consulter l'activité
-<https://accounts.google.com/AccountChooser?Email=m1.autolabel1@gmail.com&continue=https://myaccount.google.com/device-activity?rfn%3D28%26rfnc%3D1%26eid%3D1289830093753834901%26et%3D0%26asae%3D2%26anexp%3Dgivab-fa>
-<https://accounts.google.com/AccountChooser?Email=m1.autolabel1@gmail.com&continue=https://myaccount.google.com/device-activity?rfn%3D28%26rfnc%3D1%26eid%3D1289830093753834901%26et%3D0%26asae%3D2%26anexp%3Dgivab-fa>
-
-
-Vous avez reçu cet e-mail pour vous informer de modifications importantes
-apportées à votre compte et aux services Google que vous utilisez.
-© 2018 Google LLC,1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-1541515471540000
-"
-Google <no-reply@accounts.google.com>,m1.autolabel1@gmail.com,Alerte de sécurité critique,"Tue, 6 Nov 2018 14:48:22 +0000 (UTC)",<LKye8_siaQOV1yinuwv3aQ.0@notifications.google.com>,"['multipart/alternative', 'text/plain', 'text/html']","GmailAutoLabel1 M1Luminy
-
-Le paramètre relatif à l'accès pour les applications moins sécurisées a été
-activé
-m1.autolabel1@gmail.com
-Le paramètre relatif à l'accès pour les applications moins sécurisées a été
-activé pour votre compte Google m1.autolabel1@gmail.com. Si vous n'êtes pas
-à l'origine de cette autorisation, nous vous conseillons de vérifier ce qui
-s'est passé.
-
-
-
-Consulter l'activité
-<https://accounts.google.com/AccountChooser?Email=m1.autolabel1@gmail.com&continue=https://myaccount.google.com/device-activity?rfn%3D28%26rfnc%3D1%26eid%3D-5511797997665173238%26et%3D0%26asae%3D2%26anexp%3Dgivab-fa>
-<https://accounts.google.com/AccountChooser?Email=m1.autolabel1@gmail.com&continue=https://myaccount.google.com/device-activity?rfn%3D28%26rfnc%3D1%26eid%3D-5511797997665173238%26et%3D0%26asae%3D2%26anexp%3Dgivab-fa>
-
-
-Vous avez reçu cet e-mail pour vous informer de modifications importantes
-apportées à votre compte et aux services Google que vous utilisez.
-© 2018 Google LLC,1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-1541515702178000
+INBOX,['Seen'],m1.autolabel1@gmail.com,"by 2002:a02:4d02:0:0:0:0:0 with SMTP id l2-v6csp1021256jab;
+        Sat, 20 Oct 2018 17:18:34 -0700 (PDT)",ACcGV60UVUtlxsr9Y8BxZdWJaVN25m5gHrzwMzow8YeSL5Z+pkNvYVvfxlbWMSJKXbbD2QRtRUiA,"by 2002:a63:3842:: with SMTP id h2-v6mr37537765pgn.300.1540081113958;
+        Sat, 20 Oct 2018 17:18:33 -0700 (PDT)","i=1; a=rsa-sha256; t=1540081113; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Mbh+/iY/cTa/rkdBj218NNhjBzAvDTsfwUkTwOarmr6iWBebnbpGa2DdOimjtJkVz6
+         fZFjPIg9EdaDZVOVzN0mXqcNlK9DM6z8Wj2GIJeO9EVyaeHwhbCSg15rIKKqJ2zpgRyV
+         yFVrWaSQ/cx0Wl4koAEgGpd+sz/viix1GtTaaOuR8y2RJ4JrkLot1J2G4x/uet3tY3UJ
+         /cLdd2jbo1pCSe09E+w1ZJyGqOyAmJAn5RAg+hVs/Cc981lmdYXuXfOGNZ5sGbv86EvO
+         wyBCR79/4vF3uvT6BeO2Mg4WoiChjD9UtBUMZ5C9uHX6pGub7cPh8ylip9KSHriDTcqX
+         U26w==","i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:spamdiagnosticmetadata:spamdiagnosticoutput
+         :content-language:accept-language:message-id:date:thread-index
+         :thread-topic:subject:to:from:dkim-signature;
+        bh=BAE/IEL2Vz7ic5yzUWwX1sL0uC7e03pc/9i0uYmHvjQ=;
+        b=OKwiX7Yc3DyXDCB8rm7lLs5RJdszZKIUqS4g2SwpyvVzJkmSf7VSv0rGQlc9jW36pD
+         bZcX92X9bOtLpMu+baJydXef6ExIHwkRvelo/ugb9O5Xb3vgjWX1hh50bfvaLyxbWvcl
+         h4C3wmjE3O5CoVSY1pKQemRRoalSU0kv/Xe4JovXEgtvXPGfwrTQMDGvMoKVl35LswBl
+         ypuKUGmeIaxJcBpmy2IrUcGDdwu9La7kQsbx0rI73+LY8NenSy5llwN5YnWSW8l7vpcf
+         YQQyUaOWc7UZozJ9v7uBqLATRc5mOAlmZUYohprowVsS5gH3cgipMpOipitn1kIsSxYV
+         WqtQ==","i=1; mx.google.com;
+       dkim=pass header.i=@AixMarseilleUniversite.onmicrosoft.com header.s=selector1-etu-univamu-fr02b header.b=EWhMRtxi;
+       spf=pass (google.com: domain of toni.garcia@etu.univ-amu.fr designates 40.107.9.101 as permitted sender) smtp.mailfrom=toni.garcia@etu.univ-amu.fr;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=univ-amu.fr",<toni.garcia@etu.univ-amu.fr>,pass (google.com: domain of toni.garcia@etu.univ-amu.fr designates 40.107.9.101 as permitted sender) client-ip=40.107.9.101;,"mx.google.com;
+       dkim=pass header.i=@AixMarseilleUniversite.onmicrosoft.com header.s=selector1-etu-univamu-fr02b header.b=EWhMRtxi;
+       spf=pass (google.com: domain of toni.garcia@etu.univ-amu.fr designates 40.107.9.101 as permitted sender) smtp.mailfrom=toni.garcia@etu.univ-amu.fr;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=univ-amu.fr","v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=AixMarseilleUniversite.onmicrosoft.com; s=selector1-etu-univamu-fr02b;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BAE/IEL2Vz7ic5yzUWwX1sL0uC7e03pc/9i0uYmHvjQ=;
+ b=EWhMRtxingEIr5aYiL+i03m1qzYc3SCqzYO2jRN56St7PLd9ydvX9OneqUQK5L8oEYWFqtDB0aqCIaAf6c/jo4rLFXz1e13z0hgoAG04qq+yppE2uA/e40Zo0GlyclKbkO3HDtOJwv/Up0eHRw+b5Wlysf4rYTzrd0K7doWlPr0=",GARCIA Toni <toni.garcia@etu.univ-amu.fr>,"""m1.autolabel1@gmail.com"" <m1.autolabel1@gmail.com>",Test3,Test3,AQHUaNOYmB+/Xu0gPkSY9N128KkdVg==,"Sun, 21 Oct 2018 00:18:30 +0000","
+ <MR2P264MB069216502257B5C6ECD72F0DF7FB0@MR2P264MB0692.FRAP264.PROD.OUTLOOK.COM>","fr-FR, en-US",fr-FR,"mx.google.com;
+       dkim=pass header.i=@AixMarseilleUniversite.onmicrosoft.com header.s=selector1-etu-univamu-fr02b header.b=EWhMRtxi;
+       spf=pass (google.com: domain of toni.garcia@etu.univ-amu.fr designates 40.107.9.101 as permitted sender) smtp.mailfrom=toni.garcia@etu.univ-amu.fr;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=univ-amu.fr",[78.222.149.58],Email,"
+ 1;MR2P264MB0004;6:0NNazhW3jcYcFoqpOF0ua+uNdO8gc20o4hFt3v3qwBCjgmPWeOjF2CrBKDFP3zX8S55QkdzbaaOyEf10urR+pq9lSsu2tfm8UayZHe2cJ4o27lmwhYF1hh/QkhsSwonZ/TuyYT+Pm22G2rPGhQwbrcKPzy7bMpCZ5XE3tvEgAXt+8Bao3lAqCxG1yvVpxG53+JusZ+T2DvoacNjUASDyryHlfzHwGRpLyY7bXh7zmuWXc0kb0VjrjZ06EeAwy7/EcA4WXFp2rSVEKvf9XEI1Vif0wnnGaR26cMUCUinR/LDLtwCoE46EL++VmgBTLJ5ci4nBW6u6OIxZma0GM88WmGG3CZsbXd0cjEirKgtKgJUgLc/XwxzuKCRWvq/OnJyCmaWogbl7xrtMJBmnekHiZoB1OfFHEY8QVIJogj/J91ptLCflcuwVr8WJdkL/Lkl+Gpo0v//V3iY+fbkj85dxJA==;5:eqo7xrHtiTot/jVM5Rb7rZ9C/WPzGx/AWjtYFb+EjysDG5J6C9SQmTuSZhs66x0Mqy5b/u1iPGRpwxqHUy5DknEY7I4iK2SSNTRpbeQri+akszwYztTA+vOrMcIBk+2xw4CMv0A2ILqxsCO2zmmGzv52yp174WBQXx5paA2pL34=;7:Gm3H9Oz69967i0y92SGifxnsaURFjjNwDW9GdddFQoCx47VGSrRctCXEkrbgLSQB5zw9WSjlEI+OE1GL7EDtJiBBUBzWoBNpBrUXaNUvqoctXgeCh8tVBOhzfq/ScmqK4Cp1SzSDsvrO+zpTYHV+F3rNBYJ7cVLwrA8OigBRjZhtPbbTp32u98wKvFmGegyW4ZiU8yNz+S1di4nvOdodRigwNZ6aNp/I/VJPPqNc9DNcuKok//Kdn+MmHLrxQv/y",SOS;,c74e8fe2-39d7-4b71-9d0d-08d636eabadf,"
+ BCL:0;PCL:0;RULEID:(7020095)(4652040)(8989299)(5600074)(711020)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(2017052603328)(7153060)(7193020);SRVR:MR2P264MB0004;",MR2P264MB0004:,"
+ <MR2P264MB00041D284C2D3E3409F47A80F7FB0@MR2P264MB0004.FRAP264.PROD.OUTLOOK.COM>",UriScan:;,1,"
+ BCL:0;PCL:0;RULEID:(6040522)(2401047)(8121501046)(5005006)(93006095)(93001095)(3231355)(944501410)(52105095)(10201501046)(3002001)(148016)(149066)(150057)(6041310)(20161123560045)(20161123564045)(20161123562045)(20161123558120)(201703131423095)(201702281529075)(201702281528075)(20161123555045)(201703061421075)(201703061406153)(201708071742011)(7699051)(76991095);SRVR:MR2P264MB0004;BCL:0;PCL:0;RULEID:;SRVR:MR2P264MB0004;",083289FD26,"
+ SFV:NSPM;SFS:(10019020)(39850400004)(366004)(376002)(346002)(136003)(396003)(199004)(189003)(53936002)(74316002)(9686003)(54896002)(97736004)(25786009)(478600001)(2906002)(6436002)(5660300001)(5640700003)(55016002)(558084003)(2501003)(7736002)(256004)(7116003)(186003)(476003)(86362001)(486006)(68736007)(19627405001)(81156014)(8936002)(81166006)(8676002)(39060400002)(786003)(316002)(33656002)(1361003)(6606003)(2900100001)(6506007)(6916009)(74482002)(71190400001)(105586002)(106356001)(71200400001)(14454004)(2351001)(5250100002)(102836004)(7696005)(588024002)(99286004)(26005)(66066001)(6116002)(3846002);DIR:OUT;SFP:1102;SCL:1;SRVR:MR2P264MB0004;H:MR2P264MB0692.FRAP264.PROD.OUTLOOK.COM;FPR:;SPF:None;LANG:fr;PTR:InfoNoRecords;A:0;MX:1;",pass (google.com: domain of toni.garcia@etu.univ-amu.fr designates 40.107.9.101 as permitted sender) client-ip=40.107.9.101;,"
+ uYMcgOqS+K34rAWdgeHoU/0kTxQwdIXtEzpueVylKmT9FxubAERhxizZZluiTA5zr/KDvzUcHE05UTPZcnO+fpvkmnXmv5U/zm/j1yKDZrtsmK7sSJjx7L83JiNuA2KQ0rkQi2ds9x+zmFrl4raqvyS2045z99pEfZI63yCuCrkj+QRiz2myW7CxnzW1tN0tp5m6UVb5c/tc9Dk8b2RqkUixZZjezOVQN3ZXHv3SoE2p9A5feSGmRzgVWCauqLAWWIwytdggLPdfwvaR7F8o1BFGGh0T8JZwsTB46lr2cqaHQNK/Sebfbv7SAft1rA2UbQYsrMIJ8vQ0TAEw9MdHOKPGhUUQ8ot9bLUjOG6mZMU=",1:99,NSPM,"multipart/alternative;
+	boundary=""_000_MR2P264MB069216502257B5C6ECD72F0DF7FB0MR2P264MB0692FRAP_""",1.0,etu.univ-amu.fr,c74e8fe2-39d7-4b71-9d0d-08d636eabadf,"21 Oct 2018 00:18:30.3306
+ (UTC)",Hosted,a9f1c4f7-38f4-4d38-8a3c-4b6dbe981cea,MR2P264MB0004,"['multipart/alternative', 'text/plain', 'text/html']","CECI EST LE CONTENU DU MESSAGE TEST 3
 "

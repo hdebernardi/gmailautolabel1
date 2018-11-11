@@ -137,7 +137,7 @@ def get_useful_parts_of_mails(messages, keys=['Message-ID', 'Date', 'From', 'To'
 		if message['Message-ID'] not in ids:
 			filtered_msg = {}
 			for k, v in message.items():
-				if k in keys:
+				if k in message.keys():
 					filtered_msg[k] = v
 				
 			all_messages.append(filtered_msg)
