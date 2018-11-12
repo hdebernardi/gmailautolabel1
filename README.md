@@ -17,9 +17,12 @@ Then just navigate at the root of this project and run :
 
 At this point you should be able to run the script :
   - python3 mailautolabel/launcher.py
-  Arguments:
+  
     -graphics: show user interface
     -mail: to enter new adress mail and don't use default mail
+      - virtualenv env
+  - source env/bin/activate
+  - make
 
 ## Todo, to improve
 
