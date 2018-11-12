@@ -7,6 +7,7 @@ import imap.mail
 import ml.unsupervised
 import csv_helper
 import sys
+from graphics.InterfaceGraphique import AffichageTexteSimple
 
 ################################################################################
 def show_mails(mails):
@@ -44,54 +45,47 @@ def firstCo(hostname,username,password):
 		#apply_ml(mails)
 
 ###################################################################
-def enterMail():
-	method=input("Entrez 0 pour utiliser une adresse par défaut"
-              "\n       1 pour entrer votre propre adresse mail"
-	      "\nSaisir: ")
-
-
+#return hostname,username,password by default or cho
+def argMail(flag_mail):
 	# read configuration variables from config.ini file
-	if method == "0":
+	if flag_mail == False:
 		hostname = 'imap.gmail.com'
 		username = 'm1.autolabel1@gmail.com'
 		password = 'm1-luminy'
 	#user enter variables
-	elif method == "1":
-		hostname = input("Entrez l'adresse imap : ")
-		username = input("Entrez l'adresse email : ")
-		password = input("Entrez votre mot de passe : ")
-	else:
-		print("Saisi incorrect")
-		sys.exit(0)
+	elif flag_mail == True:
+		hostname = input("Enter imap adress : ")
+		username = input("Enter mail : ")
+		password = input("Enter password : ")
 	
 	return (hostname,username,password)
 
 ######################################################################
 def main():
 	print("----------------GMAIL AUTOLABEL 1----------------------")
-	connect=enterMail()
+
+	flag_graphics = False
+	flag_mail = False
+	for arg in sys.argv:
+		if arg == "-graphics":
+			flag_graphics = True
+		elif arg == "-mail":
+			flag_mail = True	
+ 
+	############################## Argument -graphics
+	if flag_graphics == True:
+		AffichageTexteSimple("L'affichage de texte fonctionne bien.\n"
+					" Il suffit d'appeler la fonction avec texte.\n"
+					" Texte etant ce qu'on veux afficher.")
+
+	############################## Argument -mail
+	connect = argMail(flag_mail = flag_mail)
+	#On récupère hostname, username,password
 	hostname = connect[0]
 	username = connect[1]
 	password = connect[2]
 
 	firstCo( hostname=hostname, username=username, password=password)
-	
-	'''A FINIR DE COMPLETER QUAND ON AURA TOUTES LES FONCTIONS NECESSAIRE
-	#If file csv exist
-	if csv_helper.is_present(username=username) == 1:
-		print("Il y a déjà un fichier csv de créer")
-		print("0: labéliser les mails 1: réentrainer le modèle")
-		method = input("Saisir:")
-		if method == "0":
-			print("ok")
-			#labél mails
-		if method == "1":
-			print("ok")
-			#train the model
-	#If file csv doesn't exist
-	else:
-		print("Le fichier csv n'a pas encore était crée")
-		firstCo( hostname=hostname, username=username, password=password)'''
 
 	
 if __name__ == '__main__':
