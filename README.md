@@ -17,6 +17,9 @@ Then just navigate at the root of this project and run :
 
 At this point you should be able to run the script :
   - python3 mailautolabel/launcher.py
+    Arguments:
+      -graphics: show API
+      -mail: to enter new adress mail and don't use default mail
   
 The script is running and you have two choice:  
   Enter 0: for choose a default adress mail
