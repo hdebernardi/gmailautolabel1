@@ -16,11 +16,10 @@ Then just navigate at the root of this project and run :
   - make
 
 At this point you should be able to run the script :
-  - python3 mailautolabel/launcher.py
-  
-The script is running and you have two choice:  
-  Enter 0: for choose a default adress mail
-  Enter 1: for choose your adress mail
+  - python3 mailautolabel/launcher.py   
+    -graphics: show user interface
+    -mail: to enter new adress mail and don't use default mail
+
 
 ## Todo, to improve
 
