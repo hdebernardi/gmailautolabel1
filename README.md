@@ -14,6 +14,7 @@ Then just navigate at the root of this project and run :
   - virtualenv env
   - source env/bin/activate
   - make
+  - pip install --upgrade google-api-python-client oauth2client
 
 At this point you should be able to run the script :
   - python3 mailautolabel/launcher.py   
