@@ -96,7 +96,7 @@ def connectGmail(username):
     """Shows basic usage of the Gmail API.
     Lists the user's Gmail labels.
     """
-    store = file.Storage('token.json')
+    store = file.Storage('mailautolabel/gmail/token.json')
     creds = store.get()
     if not creds or creds.invalid:
         flow = client.flow_from_clientsecrets('mailautolabel/gmail/credentials.json', SCOPES)
