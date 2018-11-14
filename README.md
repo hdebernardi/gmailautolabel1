@@ -19,11 +19,11 @@ Then just navigate at the root of this project and run :
 At this point you should be able to run the script :
   - python3 mailautolabel/main.py   
   
-  -graphics: show inteface use
+      -graphics: show inteface use
   
-  -default: use default adress mail (m1.autolabel1@gmail.com)
+      -default: use default adress mail (m1.autolabel1@gmail.com)
   
-  -imap: use imap connection
+      -imap: use imap connection
               
 
 
