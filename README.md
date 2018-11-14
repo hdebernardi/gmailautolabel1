@@ -18,7 +18,9 @@ Then just navigate at the root of this project and run :
 
 At this point you should be able to run the script :
   - python3 mailautolabel/main.py   
-  Arguments: -graphics: show inteface user
+  
+  Arguments:
+  -graphics: show inteface user
   -default: use default adress mail (m1.autolabel1@gmail.com)
   -imap: use imap connection
               
