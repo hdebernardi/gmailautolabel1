@@ -17,9 +17,9 @@ Then just navigate at the root of this project and run :
   - pip install --upgrade google-api-python-client oauth2client
 
 At this point you should be able to run the script :
-  - python3 mailautolabel/launcher.py   
-    -graphics: show user interface
-    -mail: to enter new adress mail and don't use default mail
+  - python3 mailautolabel/main.py   
+  Arguments: -graphics: show inteface user
+              
 
 
 ## Todo, to improve
