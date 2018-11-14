@@ -19,11 +19,13 @@ Then just navigate at the root of this project and run :
 At this point you should be able to run the script :
   - python3 mailautolabel/main.py   
   
-      -graphics: show inteface use
+      -graphics: show inteface user
   
       -default: use default adress mail (m1.autolabel1@gmail.com)
   
       -imap: use imap connection
+    
+    By default, if adress mail is gmail.com, the launcherGmail is run. If you want run launcherImap with mail gmail.com, write -imap on argument.
               
 
 
