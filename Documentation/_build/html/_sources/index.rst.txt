@@ -11,6 +11,12 @@ Welcome to GmailAddon's documentation!
 
    InterfaceGraphique
    TestInterface
+   ExtractionInfoMail
+   RecuperationMail
+   connection
+   mail
+   supervised
+   unsupervised
 
 Indices and tables
 ==================
