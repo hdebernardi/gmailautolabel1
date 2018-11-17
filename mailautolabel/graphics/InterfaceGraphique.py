@@ -20,7 +20,7 @@ def AffichageTexteSimple(texte):
 	police=tkinter.font.Font(family='Helvetica', size=20)	#Definition de la police pour le texte dans le label
 
 	label = Label(fenetre)			#Creation zone pour texte
-	label.configure(text="Bienveue dans le logiciel d'automatisation de labels !")	#Texte a ecrire
+	label.configure(text="Bienvenue dans le logiciel d'automatisation de labels !")	#Texte a ecrire
 	label.configure(width=106)		#Taille de la zone de texte
 	label.configure(font=police);		#On applique la police au label
 	label.pack()				#On place la zone
@@ -39,7 +39,7 @@ def AffichageTexteSimple(texte):
 	#background gere la couleur du fond
 	p.pack(side=TOP,expand=Y, fill=BOTH, pady=2, padx=2)
 	#pady et padx gere les "marges"
-	text="AAA"
+	#text="AAA"
 	p.add(Button(fenetre, text="Trier les mails",width=20, command=lambda:triMail(lab,texte))) 
 	#Si pas lambda alors la fonction se lance en auto
 	#Boutton de tri des mails et l'affichage
