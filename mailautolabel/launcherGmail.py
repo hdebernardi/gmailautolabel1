@@ -33,77 +33,33 @@ def AllLabel(service):
 #######################################################################
 #                Ajout d'un label a un mail                           #
 #######################################################################
-def AjoutLabel(service):
-	labelId = "UNREAD"
+def AjoutLabel(service,labelId,messageId):
 	userId = "me"
-    
 	body = {'addLabelIds': [labelId]}
    
 	results_m = service.users().messages().list(userId='me').execute()
-	messages = results_m.get('messages', [])
-	#for message in messages:
-	messageId = messages[0]['id']
 	results = service.users().messages().modify(userId=userId, id=messageId, body=body).execute()
 
-
-#######################################################################
-#              Affiche le nb de messages dans la boite mail           #
-#######################################################################
-def NbMsg(service):
-    i = 0
-
-    response = service.users().messages().list(userId='me').execute()
-    messages = []
-    if 'messages' in response:
-      messages.extend(response['messages'])
-
-    while 'nextPageToken' in response:
-      page_token = response['nextPageToken']
-      response = service.users().messages().list(userId='me', pageToken=page_token).execute()
-      messages.extend(response['messages'])
-
-    for mssg in messages:
-        i+=1
-    print("nb message = ",i)
-    sys.exit(0)
 
 #######################################################################
 #  			 Fonction principale                          #
 #######################################################################
 
-def LanceTout(service):
-    print("on lance tout")
-    # Ajoute le label UNREAD au premier mail
-    #AjoutLabel(service=service)
-
-    #affiche tous les labels
-    #AllLabel(service=service)
-
-    #affiche le nb de mail sur la boite mail
-    #NbMsg(service = service)
-
-    #affiche tous les mails
-    #final_list = AllMessage(service=service)
-    #afficheList(final_list=final_list)
-
-    #affiche tous les mails non labélisés
-    #final_list = MessagesNonLabelelises(service=service) 
-    #afficheList(final_list=final_list)
-
-
-
 def connectGmail(username):
     """Shows basic usage of the Gmail API.
     Lists the user's Gmail labels.
     """
-    store = file.Storage('mailautolabel/gmail/token.json')
+    store = file.Storage('token.json')
     creds = store.get()
     if not creds or creds.invalid:
-        flow = client.flow_from_clientsecrets('mailautolabel/gmail/credentials.json', SCOPES)
+        flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
         creds = tools.run_flow(flow, store)
     service = build('gmail', 'v1', http=creds.authorize(Http()))
+   
+    # Ajoute le label UNREAD au premier mail
+    #sujet du message : Kevin, vous avez 46 nouvelles notification
+    #AjoutLabel(service = service,labelId = 'UNREAD',messageId = '167329c4039358c9' )
 
-    #LanceTout(service=service)    
     final_list = AllMessage(service=service)
     csv_helper.save_mails(username, final_list)
 
