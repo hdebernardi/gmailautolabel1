@@ -9,25 +9,40 @@ In order to use this project, you should already have installed :
     - https://virtualenv.pypa.io/en/latest/
   - make
     - https://www.gnu.org/software/make/
+  - pip install --upgrade google-api-python-client oauth2client
+    -https://developers.google.com/api-client-library/python/start/installation?refresh=1
 
 Then just navigate at the root of this project and run :
   - virtualenv env
   - source env/bin/activate
   - make
-  - pip install --upgrade google-api-python-client oauth2client
+  
+For connect with gmail:
+   1) Go to https://developers.google.com/gmail/api/quickstart/python?refresh=1
+
+   2) In "Step1:Turn on the Gmail API" 
+   Click ENABLE THE GMAIL API
+
+   3.a) You are already connect to gmail account, go to 4)
+
+   3.b) If you are not connect : Connect to your account + click again  ENABLE THE GMAIL API
+
+   4) Select + Create new project
+
+   5) Enter a name + Next
+
+   6) Download Client Configuration
+
+   7) Save the file "credentials.json" in the folder "mailautolabel-master"
+
 
 At this point you should be able to run the script :
   - python3 mailautolabel/main.py   
-  
+      
       -graphics: show inteface user
-  
-      -default: use default adress mail (m1.autolabel1@gmail.com)
-  
       -imap: use imap connection
-    
-    By default, if adress mail is gmail.com, the launcherGmail is run. If you want run launcherImap with mail gmail.com, write -imap on argument.
-              
-
+   
+   If you run without arguments, a new page open in your Web browser. Connect to your gmail account and autorize the application.
 
 ## Todo, to improve
 
