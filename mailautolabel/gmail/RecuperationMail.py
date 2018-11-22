@@ -17,7 +17,8 @@ def RecupAllMessages(service):
       page_token = response['nextPageToken']
       response = service.users().messages().list(userId='me', pageToken=page_token).execute()
       messages.extend(response['messages'])
-
+      
+    print("Nombre total de mail: ",len(messages))
     return messages
 
 #######################################################################
