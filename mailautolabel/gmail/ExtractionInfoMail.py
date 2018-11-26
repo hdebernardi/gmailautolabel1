@@ -16,11 +16,11 @@ def afficheList(final_list):
         i += 1
         print("id ",var['id'])
         #print("Sender ",var['Sender'])
-        print("Date ",var['Date'])
-        print("Subject ",var['Subject'])
+        #print("Date ",var['Date'])
+        #print("Subject ",var['Subject'])
         #print("Snippet",var['Snippet'])
-        print("Label",var['Label'])
-        #print("Body ",var['Message_body'])
+        #print("Label",var['Label'])
+        print("Body ",var['Message_body'])
 
 
 #######################################################################
@@ -35,22 +35,7 @@ def clearBody(part_data):
     # decoding from Base64 to UTF-8
     clean_two = base64.b64decode (bytes(clean_one, 'UTF-8'))
     soup = BeautifulSoup(clean_two , "lxml" )
-    message=soup.body()
-
-    #on récupère l'intérieur des balises <p> </p> avec le nom des balises écrites
-    '''for p in soup.find_all('p'):
-       print(p)'''
-
-    #on récupère l'intérieur des balises <p> </p> avec le nom des balises NON ecrites
-    '''for p in soup.p.find_all(string=True):
-    print(p)'''
-
-    #supprime toutes les balises <htpps:> .* </https:>
-    '''test = "<p> ca on <https:>ca on supprime</https:>garde</p> <https:>ici cest le deuxieme supprime</https:>"
-    cleanr =  re.compile('<https:>(.*?)</https:>')
-    cleantext = re.sub(cleanr, '', test)
-    print(cleantext)'''
-
+    message=soup.get_text()
     return message
 
 #######################################################################
@@ -107,11 +92,14 @@ def ExtraitInfoMsg(service,message):
     # RECUPERE LE CORPS
     try:
         mssg_parts = payld['parts'] # fetching the message parts
-        part_one  = mssg_parts[0] # fetching first element of the part 
+        part_one  = mssg_parts[0] # fetching first element of the part
         part_body = part_one['body'] # fetching body of the message
-        part_data = part_body['data'] # fetching data from the body
-        #on récupère le body au bon format 
-        mssg_body = clearBody(part_data=part_data)
+        if part_body['size']==0:
+           mssg_body =' '
+        else: 
+            part_data = part_body['data'] # fetching data from the body
+            #on récupère le body au bon format 
+            mssg_body = clearBody(part_data=part_data)
         temp_dict['Message_body'] = mssg_body
     except :
         pass
@@ -129,4 +117,3 @@ def ExtraitInfoMsg(service,message):
     'Label': [ , , ]
     }
     '''
-
