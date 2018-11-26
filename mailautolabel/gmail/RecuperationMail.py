@@ -1,8 +1,10 @@
 from gmail.ExtractionInfoMail import *
 
 #######################################################################
-#          Récupère tous les messages de la boite mail                #
+#               Récupère tous les mails lablélisé, extrait les infos  #  
+#                    et les stockent dans une liste                   #
 #######################################################################
+
 def RecupAllMessages(service):
     print("On récupère tous les messages de la boite mail")
     user_id =  'me'
@@ -21,10 +23,6 @@ def RecupAllMessages(service):
     print("Nombre total de mail: ",len(messages))
     return messages
 
-#######################################################################
-#               Récupère tous les mails, extrait les infos et         #
-#                     les stockent dans une liste                     #
-#######################################################################
 def AllMessage(service):
     
     user_id = 'me'
@@ -39,45 +37,61 @@ def AllMessage(service):
         i+=1
         message = service.users().messages().get(userId=user_id, id=mssg['id']).execute()
         temp_dict = ExtraitInfoMsg(service=service,message=message)
+        #on vérifie que le message est bien labélisé (il ne se situe pas dans l'INBOX)
+        flag_label = False
+        for label in temp_dict['Label']:
+            if label == 'INBOX':
+                flag_label = True
         # On ajoute le nouvel élément du dictionnaire dans la liste final
-        final_list.append(temp_dict) 
+        if(flag_label == False):
+            final_list.append(temp_dict) 
 
     return final_list
-
-
 
 #######################################################################
 #         Récupère tous les mails non labelisés, extrait les infos    #
 #             et les stockent dans une liste                          #
 #######################################################################
 
+def RecupAllMessagesNonLabelises(service):
+    label_id_one = 'INBOX'
+
+    print("On récupère tous les messages dans la boite de réception")
+    user_id =  'me'
+
+    # On récupère tous les messages
+    response = service.users().messages().list(userId='me',labelIds=[label_id_one]).execute()
+    messages = []
+    if 'messages' in response:
+      messages.extend(response['messages'])
+
+    while 'nextPageToken' in response:
+      page_token = response['nextPageToken']
+      response = service.users().messages().list(userId='me', pageToken=page_token).execute()
+      messages.extend(response['messages'])
+      
+    print("Nombre total de mail: ",len(messages))
+    return messages
+
+
+
 '''Quand on crée un label sur gmail son id est de la forme : "Label_*"
 Ainsi pour savoir si un mail est déjà labélisé on vérifie si un label
 de la forme "Label_*" lui est associé.'''
-def MessagesNonLabelelises(service):
+def MessagesNonLabelises(service):
     user_id = 'me'
-    messages = RecupAllMessages(service = service)
-
+    messages = RecupAllMessagesNonLabelises(service = service)
     final_list = [ ]
-    
-    suivant = 0 #passe à 1 si le mail est déjà labélisé
-    # On parcourt chaque message
+
+    i=0
     for mssg in messages:
+        print("Extraction info message ",i)
+        i+=1
         message = service.users().messages().get(userId=user_id, id=mssg['id']).execute()
-        # On vérifie si le mail est labélisé ou non
-        expression = r"Label_*"
-        for label in message['labelIds']:
-            if re.search(expression, label) is not None:
-                suivant = 1
-         
-        #si le mail n'est pas labélisé on l'ajoute à la list final
-        if(suivant == 0):
-            temp_dict = ExtraitInfoMsg(service=service,message=message)
-            final_list.append(temp_dict)
-        suivant = 0
+        temp_dict = ExtraitInfoMsg(service=service,message=message)
+        final_list.append(temp_dict)
 
     return final_list
-
 
 
 
