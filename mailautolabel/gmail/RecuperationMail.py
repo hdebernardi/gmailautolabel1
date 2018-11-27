@@ -1,4 +1,5 @@
 from gmail.ExtractionInfoMail import *
+import re
 
 #######################################################################
 #               Récupère tous les mails lablélisé, extrait les infos  #  
@@ -27,6 +28,7 @@ def AllMessage(service):
     
     user_id = 'me'
     messages = RecupAllMessages(service = service)
+
     final_list = [ ]
 
     print("On extrait les informations pour chaque mails")
@@ -35,16 +37,17 @@ def AllMessage(service):
     for mssg in messages:
         print("Extraction info message ",i)
         i+=1
+        if(i == 100):
+            break;
         message = service.users().messages().get(userId=user_id, id=mssg['id']).execute()
         temp_dict = ExtraitInfoMsg(service=service,message=message)
-        #on vérifie que le message est bien labélisé (il ne se situe pas dans l'INBOX)
-        flag_label = False
-        for label in temp_dict['Label']:
-            if label == 'INBOX':
-                flag_label = True
-        # On ajoute le nouvel élément du dictionnaire dans la liste final
-        if(flag_label == False):
-            final_list.append(temp_dict) 
+
+        #Si le mail n'est pas labélisé on ne l'ajoute pas 
+        if(temp_dict['Folder'] == 'False'):
+            pass
+        #sinon on l'ajoute
+        else:
+            final_list.append(temp_dict)
 
     return final_list
 
