@@ -37,8 +37,6 @@ def AllMessage(service):
     for mssg in messages:
         print("Extraction info message ",i)
         i+=1
-        if(i == 100):
-            break;
         message = service.users().messages().get(userId=user_id, id=mssg['id']).execute()
         temp_dict = ExtraitInfoMsg(service=service,message=message)
 
