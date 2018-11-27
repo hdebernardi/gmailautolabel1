@@ -7,6 +7,10 @@ import re
 #######################################################################
 
 def RecupAllMessages(service):
+    """
+    Récupère tous les mails de la boite
+    """
+        
     print("On récupère tous les messages de la boite mail")
     user_id =  'me'
 
@@ -25,7 +29,12 @@ def RecupAllMessages(service):
     return messages
 
 def AllMessage(service):
-    
+    """
+    Parcourt tous les messages de la boite mail.
+    Si la case 'Folder' est == à False cela signifie que le mail n'est pas  labélisé on ne l'ajoute donc pas à la liste final.
+    On retourne la liste finale
+    """
+        
     user_id = 'me'
     messages = RecupAllMessages(service = service)
 
@@ -55,6 +64,10 @@ def AllMessage(service):
 #######################################################################
 
 def RecupAllMessagesNonLabelises(service):
+    """
+    Récupère tous les mails situés dans INBOX et les retournent dans une variable
+    """
+    
     label_id_one = 'INBOX'
 
     print("On récupère tous les messages dans la boite de réception")
@@ -76,6 +89,9 @@ def RecupAllMessagesNonLabelises(service):
 
 
 def MessagesNonLabelises(service):
+    """
+    Parcourt tous les messages dans INBOX, extrait toutes les infos et  retournent une liste final
+    """
     user_id = 'me'
     messages = RecupAllMessagesNonLabelises(service = service)
     final_list = [ ]
