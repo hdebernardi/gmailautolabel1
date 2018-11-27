@@ -20,7 +20,7 @@ import csv_helper
 import sys
 import csv
 
-def unsupervised_split(username):
+def supervised_split(username):
 
 	filename4 = csv_helper.get_path(username)
 
@@ -65,7 +65,7 @@ def unsupervised_split(username):
 	print(precision_score(predicts, y_test, average='macro'))
 	return predicts
 
-def unsupervised_with_nolabelling_mail(username):
+def supervised_with_nolabelling_mail(username):
 	#On récupère les mails labélisés
 	filename = csv_helper.get_path(username)
 	csv.field_size_limit(sys.maxsize)
