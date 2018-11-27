@@ -11,7 +11,11 @@ connection
 
 
 def open(hostname, username, password, verbose=False):
-	- Cette fonction fait..
+	* Ouvre une connection vers une boite mail
+    
+        - 'hostname' : nom du serveur auquel nous voulons nous connecter (ex : gmail, aol).
+        - 'username' : identifiant de l'utilisateur de la boite mail.
+        - 'password' : mot de passe de l'utilisateur de la boite mail.
 	
 
 
