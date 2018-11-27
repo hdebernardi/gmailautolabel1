@@ -71,7 +71,7 @@ def supervised_split(username):
 def supervised_with_nolabelling_mail(username):
 	"""
 	On récupère les mails non labélisés et labélisés dans des df.
-	On fait un TF-IDF pour séparés tous les mots et affiche un "score" pour chacun.
+	On fait un TF-IDF pour séparer tous les mots et affiche un "score" pour chacun.
 	On fait une régression logistique entre le body et le folder des mails déjà labélisé. Le Folder est seulement le nom d'un label.
 	Une fois le classifier crée, on l'applique sur les mails non labélisés et on retourne un dictionnaire contenant tous les labels de prédictions.
 	"""

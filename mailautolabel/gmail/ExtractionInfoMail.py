@@ -129,5 +129,6 @@ def ExtraitInfoMsg(service,message):
     'Snippet': 'Lorem ipsum dolor sit amet'
     'Message_body': 'Lorem ipsum dolor sit amet'
     'Label': [ , , ]
+    'Folder': Label mis par l'utilisateur (optional)
     }
     '''

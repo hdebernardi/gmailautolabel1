@@ -90,7 +90,7 @@ def RecupAllMessagesNonLabelises(service):
 
 def MessagesNonLabelises(service):
     """
-    Parcourt tous les messages dans INBOX, extrait toutes les infos et  retournent une liste final
+    Parcourt tous les messages dans INBOX, extrait toutes les infos et retourne une liste final.
     """
     user_id = 'me'
     messages = RecupAllMessagesNonLabelises(service = service)

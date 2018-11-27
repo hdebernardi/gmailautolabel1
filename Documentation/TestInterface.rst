@@ -9,4 +9,4 @@ TestInterface
 **Ce fichier teste les fonction d'affichage graphique**
 
 def AffichageTexteSimple(texte):
-	-Test de la fonction testAffichageTexteSimple
+	- Test de la fonction testAffichageTexteSimple

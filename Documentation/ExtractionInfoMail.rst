@@ -11,14 +11,30 @@ ExtractionInfoMail
 
 
 def afficheList(final_list):
-	- Cette fonction fait..
-	
+	- Affiche la liste des mails dont leurs ``id`` et leur ``body``.
+	- Paramètre :
+		* ``final_list`` : Liste de mails.
+
 
 def clearBody(part_data):
-	- Cette fonction fait..
-	
+	- Nettoie le corps du mail en le décodant depuis base64.
+	- Paramètre :
+		* ``part_data`` : Corps du mail en base64.
+	- Renvoie ``message``, le corps du text traité. 
+
 	
 def ExtraitInfoMsg(service,message):
-	- Cette fonction fait..
-
+	- Extrait les informations utiles du message vers un dictionnaire ``temp_dict``.
+	- Paramètres :
+		* ``service`` : service de messagerie utilisé (ex : gmail)
+		* ``message`` : un mail, avec toutes ses informations.
+	- Renvoie ``temp_dict``, contenant :
+		* ``id`` : L'identifiant du message.
+		* ``Label`` : Liste des labels du mail.
+		* ``Folder`` : Label mis par l'utilisateur (si vide = False).
+		* ``Subject`` : Objet du mail.
+		* ``Date`` : Date du mail au format YYYY-MM-DD.
+		* ``Sender`` : Expéditeur du mail.
+		* ``Snippet`` : Snippet du message.
+		* ``Message_body`` : Corps du message, après traitement.
 

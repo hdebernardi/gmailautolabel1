@@ -7,35 +7,58 @@ mail
 ======================================
 
 
-**Ce fichier..**
+**Traite les mails en utilisant IMAP**
 
 
 def decode_html(html):
-	- Cette fonction fait..
+	- Decode du text au format html en un text simple sans format.
+	- Paramètre :
+		* ``html`` : Un text au format html.
+	- Renvoie ``text``, le text html décodé.
 	
 
 def get_header(mail):
-	- Cette fonction fait..
+	- Récupère l'entète du mail.
+	- Paramètre :
+		* ``mail`` : Un mail.
+	- Retourne ``dict_to_return`` contenant l'entète du mail.
 	
 	
 def get_flags(mail):
-	- Cette fonction fait..
+	- Récupère les labels du mail.
+	- Paramètre :
+		* ``mail`` : un mail.
+	- Retourne le dictionnaire ``dict_to_return`` contenant la liste des labels.
 	
 	
 def get_body(mail):
-	- Cette fonction fait..
+	- Récupère le corps du mail.
+	- Paramètre :
+		* ``mail`` : Un mail.
+	- Retourne le dictionnaire ``dict_to_return`` contenant le corps du message.
 	
 	
 def get_folders(connection, verbose=False):
-	- Cette fonction fait..
+	- Récupère les dossiers présents dans la boite mail.
+	- Paramètres :
+		* ``connection`` : une connection vers une boite mail.
+		* ``verbose`` : permet d'afficher ce que la fonction fait (default = False).
+	- Retourne ``folders``, la liste des dossiers.
 	
 	
 def get_mails(connection, verbose=False):
-	- Cette fonction fait..
+	- Récupère les mails présents dans une boite mail en utilisant les fonctions précédentes.
+	- Paramètres :
+		* ``connection`` : une connection vers une boite mail.
+		* ``verbose`` : permet d'afficher ce que la fonction fait (default = False).
+	- Retourne ``all_messages``, une liste de mails.
 	
 	
 def get_useful_parts_of_mails(mails):
-	- Cette fonction fait..
+	- Ne récupère seulment les parties utiles des mails.
+	- Paramètre :
+		* ``mails`` : une liste de mails.
+	- Retourne ``all_mails``, la liste des mails traitée.
 	
 	
 
