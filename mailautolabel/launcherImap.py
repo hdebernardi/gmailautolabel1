@@ -4,7 +4,7 @@ import csv
 
 import imap.connection
 import imap.mail
-import ml.unsupervised
+#import ml.unsupervised
 import csv_helper
 import sys
 
