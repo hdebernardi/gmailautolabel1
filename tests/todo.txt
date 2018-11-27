@@ -1,0 +1,7 @@
+            Les tests unitaires:
+-Suite à l'écriture des codes nous allons nous rediriger vers le pratique des tests unitaires.
+    -D'abord, la première ligne contient un caractère par test exécuté. Les principaux caractères sont un point (".") si le test s'est validé, la lettre F si le test n'a pas obtenu le bon résultat et la lettre E si le test a rencontré une erreur (si une exception a été levée pendant l'exécution de la méthode) ;
+
+    -Ensuite se trouve une ligne récapitulative du nombre de tests exécutés ;
+
+    -Enfin, la dernière ligne récapitule le nombre de réussites ou échecs ou erreurs. Si tout va bien, cette dernière ligne devrait être simplement "OK".
