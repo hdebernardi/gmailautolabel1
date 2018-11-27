@@ -34,6 +34,9 @@ def AllLabel(service):
 #                Ajout d'un label a un mail                           #
 #######################################################################
 def AjoutLabel(service,labelId,messageId):
+	"""
+	Ajoute le label "labelId" au mail "messageId"
+	"""
 	userId = "me"
 	body = {'addLabelIds': [labelId]}
    
@@ -41,10 +44,12 @@ def AjoutLabel(service,labelId,messageId):
 	results = service.users().messages().modify(userId=userId, id=messageId, body=body).execute()
 
 
-#######################################################################
-#                                        #
-#######################################################################
+
 def creer_csv(username,service):
+        """
+        Créer un fichier csv pour les mails déjà labélisés et
+        ceux non labélisés
+        """
         #on crée le fichier csv pour les mails déjà labélisés
         final_list = AllMessage(service)
         csv_helper.save_mails(username, final_list)
@@ -57,6 +62,11 @@ def creer_csv(username,service):
 #  			 Fonction principale                          #
 #######################################################################
 def connectGmail(username):
+    """
+         Ce connecte au service de Gmail.
+         Si c'est la première connection de l'utilisateur, crée un fichier csv pour les mails labélisés et non labélisés.
+         Si ce n'est pas la première connection, soit on réentraine le modèle, soit on appel la fonction de ML et on labélise les mails.
+    """
     #On se connecte au service de gmail
     store = file.Storage('token.json')
     creds = store.get()
