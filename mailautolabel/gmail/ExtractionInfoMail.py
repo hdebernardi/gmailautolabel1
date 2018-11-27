@@ -35,6 +35,7 @@ def clearBody(part_data):
     # decoding from Base64 to UTF-8
     clean_two = base64.b64decode (bytes(clean_one, 'UTF-8'))
     soup = BeautifulSoup(clean_two , "lxml" )
+    #message=soup.body()
     message=soup.get_text()
     return message
 
@@ -58,6 +59,17 @@ def ExtraitInfoMsg(service,message):
 
     payld = message['payload'] # récupère le payload du message
     headr = payld['headers'] # récupère le header du payload
+
+    # SI LE MAIL EST TRIE RECUPERE L'ID DU LABEL/FOLDER
+    est_labelise = False
+    expression = r"Label_*"
+    for label in message['labelIds']:
+        if re.search(expression, label) is not None:
+            est_labelise = True
+            temp_dict['Folder'] = label
+
+    if est_labelise == False:
+        temp_dict['Folder'] = 'False'
 
     # RECUPERE LE SUJET
     for one in headr:
