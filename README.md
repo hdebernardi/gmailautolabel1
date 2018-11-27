@@ -82,5 +82,3 @@ At this point you should be able to run the script :
 
 - user interface
   - only if we got time since we already have rich outputs from notebooks
-
-- j'ai mis les tâches à faire dans la section wiki :D
