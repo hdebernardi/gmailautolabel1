@@ -75,10 +75,6 @@ def RecupAllMessagesNonLabelises(service):
     return messages
 
 
-
-'''Quand on crée un label sur gmail son id est de la forme : "Label_*"
-Ainsi pour savoir si un mail est déjà labélisé on vérifie si un label
-de la forme "Label_*" lui est associé.'''
 def MessagesNonLabelises(service):
     user_id = 'me'
     messages = RecupAllMessagesNonLabelises(service = service)
