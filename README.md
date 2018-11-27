@@ -1,5 +1,7 @@
 # mailautolabel
+Programmeur : VOIR WIKI
 
+Utilisateur : CI DESSOUS
 ## Quick start
 
 In order to use this project, you should already have installed :
