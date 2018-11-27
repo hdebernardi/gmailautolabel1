@@ -57,6 +57,9 @@ def to_dict(username):
 ################################################################################
 import pandas as pd
 def save_mails(username, mails):
+	"""
+	create a csv file from a dictionnary
+	"""
 	filepath = get_path(username)
 	df = pd.DataFrame(mails)
 	df.to_csv(filepath)
