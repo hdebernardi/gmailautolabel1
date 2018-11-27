@@ -55,15 +55,8 @@ def to_dict(username):
     return rv
 
 ################################################################################
+import pandas as pd
 def save_mails(username, mails):
 	filepath = get_path(username)
-	try:
-		file = open(filepath, 'r')
-	except IOError:
-		file = open(filepath, 'w')
-	
-	keys = mails[0].keys()
-	with open(filepath, 'w') as csvfile:
-		writer = csv.DictWriter(csvfile, keys)
-		writer.writeheader()
-		writer.writerows(mails)
+	df = pd.DataFrame(mails)
+	df.to_csv(filepath)
