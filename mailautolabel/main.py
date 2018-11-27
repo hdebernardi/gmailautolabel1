@@ -5,6 +5,13 @@ from graphics.InterfaceGraphique import AffichageTexteSimple
 
 ######################################################################
 def main():
+	"""
+		Gère les arguments entrés par l'utilisateur.
+		-graphics Appel l'interface graphique
+		-imap Appel le launcher imap
+		Sans arguments: Appel le launcher gmail
+	"""
+	
 	print("----------------GMAIL AUTOLABEL 1----------------------")
 
 	flag_graphics = False
@@ -28,10 +35,6 @@ def main():
 	password = 'm1-luminy'
 
 	if flag_imap == True:
-		#On récupère hostname, username,password
-		hostname = input("Enter imap adress : ")
-		username = input("Enter mail : ")
-		password = input("Enter password : ")
 		launcherImap.connectImap(hostname=hostname,username=username,password=password)
 	else:
 		launcherGmail.connectGmail(username = username)
