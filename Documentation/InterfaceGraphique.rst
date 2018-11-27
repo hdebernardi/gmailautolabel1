@@ -11,7 +11,7 @@ InterfaceGraphique
 
 
 def triMail(lab,texte):
-	- La fonction se sert recupere le label (zone de texte) et ecris "texte" dedans
+	- La fonction se sert à recuperer le label (zone de texte) et ecris "texte" dedans
 	 
 	 
 def AffichageTexteSimple(texte):	 
