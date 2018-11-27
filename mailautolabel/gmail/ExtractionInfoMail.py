@@ -61,6 +61,8 @@ def ExtraitInfoMsg(service,message):
     headr = payld['headers'] # récupère le header du payload
 
     # SI LE MAIL EST TRIE RECUPERE L'ID DU LABEL/FOLDER
+    #on vérfie si le mail possède un label de la forme "Label_*"
+    #si c'est le cas, cela veut dire que le mail a été trié par l'utilisateur et qu'il se situe dans le folder.
     est_labelise = False
     expression = r"Label_*"
     for label in message['labelIds']:
