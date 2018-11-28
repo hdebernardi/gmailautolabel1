@@ -9,11 +9,11 @@ supervised
 
 **Ce fichier..**
 
-def supervised_split(username):
+def supervisedSplit(username):
 	- Cette focntion fait...
 
 
-def supervised_with_nolabelling_mail(username):
+def supervisedWithNolabellingMail(username):
 	- Fonctionnement :
 		* On récupère les mails non labélisés et labélisés dans des df.
 		* On fait un TF-IDF pour séparer tous les mots et affiche un "score" pour chacun.

@@ -8,14 +8,14 @@ RecuperationMail
 
 **Fonctions utilisant seulement le service Gmail**
 
-def RecupAllMessages(service):
+def recupAllMessages(service):
 	- Récupère tout les mails d'une boite mail.
 	- Paramètre :
 		* ``service`` : Service utilisé pour communiquer avec la boite mail.
 	- Retourne ``messages``, la iste de tout les messages.
 
 
-def AllMessage(service):
+def allMessage(service):
 	- 	Parcourt tous les messages de la boite mail.
 		En extrait leurs informations.
 		Si la case 'Folder' est == à False cela signifie que le mail n'est pas  labélisé on ne l'ajoute donc pas à la liste final.
@@ -24,15 +24,15 @@ def AllMessage(service):
 	- Retourne ``final_list``, liste de tout les mails labelisés et traitée. 
 
 
-def _RecupAllMessagesNonLabelises(service):
+def recupAllMessagesNonLabelises(service):
 	- Récupère tout les messages situés dans la boite de réception INBOX de la boite mail.
 	- Paramètre :
 		* ``service`` : Service utilisé pour communiquer avec la boite mail.
 	- Retourne ``messages`` la liste de tout les messages dans non labelisé.
 
 
-def MessagesNonLabelelises(service):
-	- Parcourt tous les messages dans INBOX (liste retournée par la fonction RecupAllMessagesNonLabelises(service))_ , extrait toutes les infos et retourne une liste final.
+def messagesNonLabelelises(service):
+	- Parcourt tous les messages dans INBOX (liste retournée par la fonction recupAllMessagesNonLabelises(service)), extrait toutes les infos et retourne une liste final.
 	- Paramètre :
 		* ``service`` : Service utilisé pour communiquer avec la boite mail.
 	- retourne ``final_list``, la liste des mails traités.

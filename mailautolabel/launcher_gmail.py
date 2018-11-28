@@ -2,20 +2,20 @@ from __future__ import print_function
 from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
-import email
 from apiclient import errors
-import ml.supervised
+import email
 
-from gmail.RecuperationMail import *
+from gmail.recuperation_mail import *
+import ml.supervised
 import csv_helper
 
-# If modifying these scopes, delete the file token.json.
+# Si vous modifiez ces `SCOPES`, supprimez le fichier `token.json`.
 SCOPES = 'https://www.googleapis.com/auth/gmail.modify'
 
 #######################################################################
-#   Affiche tous les labels deja creer de la boite gmail              #
+#   Affiche tous les labels deja créés de la boite gmail              #
 #######################################################################
-def AllLabel(service):
+def allLabel(service):
     print('---------------------------------------------------')
     print('LABELS PRESENT SUR LA BOITE MAIL:')
     # Call the Gmail API

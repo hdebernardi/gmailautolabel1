@@ -9,3 +9,6 @@ env/
 
 # IPython Notebook
 .ipynb_checkpoints/
+
+# Vscode
+.vscode/

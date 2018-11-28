@@ -23,7 +23,7 @@ def clearBody(part_data):
 	- Renvoie ``message``, le corps du text traité. 
 
 	
-def ExtraitInfoMsg(service,message):
+def extraitInfoMsg(service,message):
 	- Extrait les informations utiles du message vers un dictionnaire ``temp_dict``.
 	- Paramètres :
 		* ``service`` : service de messagerie utilisé (ex : gmail)

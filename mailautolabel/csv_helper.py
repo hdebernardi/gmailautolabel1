@@ -2,53 +2,48 @@ import csv
 import os
 
 #######################################################################
-#return the absolute path of the file "username".csv
-#Note: 
-# cheminFich = 'data/{}.csv'.format(username) 
-#It works but not portable on all OS
-
-def get_path(username):
+def getPath(username):
     """
-    return the absolute path of the file "username".csv
-    Note: 
-    filepath = 'data/{}.csv'.format(username) 
-    It works but not portable on all OS
+    Renvoie le chemin absolu du fichier "username".csv
+    - Note:
+        cheminFich = 'data/{}.csv'.format(username) 
+    Cela fonctionne mais probablement pas sur tout les OS
     """
-    # gives the absolute path from where the script is started
+    # Donne le chemin absolu d'où le script est démarré
     root = os.getcwd() 
-    # gives data/username.csv or data\username.csv for windows or linux
+    # Donne data/username.csv ou data\username.csv pour windows ou linux
     rel_path = os.path.join("data", username+".csv")
-    # correct path of the file
+    # Chemin correct du fichier
     abs_path = os.path.join(root, rel_path)
     return abs_path   
 
 
 #######################################################################
-def is_present(username):
+def isPresent(username):
     """
-    return 1 if path "username".csv is present, 0 if absent
+    Retourne 1 si le chemin "username".csv est présent, 0 sinon
     """
-    filepath = get_path(username) 
-    #we test if the file is present while trying to open it
+    filepath = getPath(username) 
+    #Nous testons si le fichier est présent en essayant de l'ouvrir
     try:
         with open(filepath): pass
     except IOError:
-        return 0 #file absent
+        return 0 #Fichier absent
 
-    return 1 #file present
+    return 1 #Fichier présent
 
 
 ######################################################################
-def to_dict(username):
+def toDict(username):
     """
-    returns a dictionary from a csv file
+    Retourne un dictionnaire depuis un fichier csv
     """
     rv = []
-    filepath = get_path(username)
+    filepath = getPath(username)
 
     with open(filepath, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
-        # we go through each line of the csv file
+        # Nous parcourons chaque ligne du fichier csv
         for row in reader:            
             rv.append(row)
     
@@ -56,10 +51,10 @@ def to_dict(username):
 
 ################################################################################
 import pandas as pd
-def save_mails(username, mails):
+def saveMails(username, mails):
 	"""
-	create a csv file from a dictionnary
+    Créer un fichier csv depuis un dictionnaire
 	"""
-	filepath = get_path(username)
+	filepath = getPath(username)
 	df = pd.DataFrame(mails)
 	df.to_csv(filepath)

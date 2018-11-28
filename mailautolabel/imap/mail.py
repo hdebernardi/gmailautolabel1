@@ -5,29 +5,29 @@ import chardet
 import bs4
 
 ################################################################################
-def decode_html(html):
+def decodeHtml(html):
 	soup = bs4.BeautifulSoup(html, 'html.parser')
 	
-	# kill all script and style elements
+	# Détruit tous les éléments de script et de style
 	for script in soup(['script', 'style']):
-		script.extract() # rip it out
+		script.extract() # l'enlève
 
-	# get text
+	# Récupère le text
 	text = soup.get_text()
 
-	# break into lines and remove leading and trailing space on each
+	# Divise en lignes et enlève les espaces à gauche et à droite sur chacune d'elles
 	lines = (line.strip() for line in text.splitlines())
 
 	# break multi-headlines into a line each
 	chunks = (phrase.strip() for line in lines for phrase in line.split(' '))
-	# drop blank lines
+	# Rajout de ligne vide
 	#text = '\n'.join(chunk for chunk in chunks if chunk)
 	text = ' '.join(chunk for chunk in chunks if chunk)
 
 	return text
 
 ################################################################################
-def get_header(mail):
+def getHeader(mail):
 	dict_to_return = {}
 	
 	for key in mail.keys():
@@ -39,7 +39,7 @@ def get_header(mail):
 	return dict_to_return
 
 ################################################################################
-def get_flags(mail):
+def getFlags(mail):
 	dict_to_return = {'Flags': []}
 
 	for flag in mail:
@@ -48,14 +48,14 @@ def get_flags(mail):
 	return dict_to_return
 
 ################################################################################
-def get_body(mail):
+def getBody(mail):
 	dict_to_return = {'Content-type': []}
 
 	has_a_text_part = 0
 
 	for part in mail.walk():
-		# as for now, we only get text/plain part
-		# we should deal with text/html data and attachments later
+		# Quant à maintenant, nous obtenons seulement `part` en text/plain
+		# Nous traiterons `data` et `attachemnts` en text/html plus tard
 		if part.get_content_type() == 'text/plain':
 			str_body = part.get_payload(decode=True)
 			if(str_body):
@@ -69,14 +69,14 @@ def get_body(mail):
 			if(str_body):
 				encoding = chardet.detect(str_body)['encoding']
 				str_body = str_body.decode(encoding, errors='ignore')
-				dict_to_return['Body'] = decode_html(str_body)
+				dict_to_return['Body'] = decodeHtml(str_body)
 
 		dict_to_return['Content-type'].append(part.get_content_type())
 
 	return dict_to_return
 
 ################################################################################
-def get_folders(connection, verbose=False):
+def getFolders(connection, verbose=False):
 	if(verbose):
 		print('Getting folders...')
 		
@@ -92,10 +92,10 @@ def get_folders(connection, verbose=False):
 	return folders
 
 ################################################################################
-def get_mails(connection, verbose=False):
+def getMails(connection, verbose=False):
 	all_messages=[]
 	
-	folders = get_folders(connection, verbose)
+	folders = getFolders(connection, verbose)
 
 	# on recherche des messages dans tous les dossiers
 	for folder in folders:
@@ -119,16 +119,16 @@ def get_mails(connection, verbose=False):
 			full_message = {}
 			#full_message['ID'] = message_id
 			full_message['Folder'] = folder
-			full_message.update(get_flags(flags))
-			full_message.update(get_header(mail))
-			full_message.update(get_body(mail))
+			full_message.update(getFlags(flags))
+			full_message.update(getHeader(mail))
+			full_message.update(getBody(mail))
 
 			all_messages.append(full_message)
 
 	return all_messages
 
 ################################################################################
-def get_useful_parts_of_mails(mails):
+def getUsefulPartsOfMails(mails):
 	all_mails = []
 
 	data = [[k,v] for mail in mails for k, v in mail.items()] 

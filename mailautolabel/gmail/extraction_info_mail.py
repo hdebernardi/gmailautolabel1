@@ -9,7 +9,7 @@ import sys
 #######################################################################
 
 def afficheList(final_list):
-    print ("Total messaged retrived: ", str(len(final_list)))
+    print ("Total de massage récupérés: ", str(len(final_list)))
     i = 1
     for var in final_list:
         print("--------------------------------------------message ",i)
@@ -28,11 +28,11 @@ def afficheList(final_list):
 #######################################################################
 
 def clearBody(part_data):
-    # decoding from Base64 to UTF-8
+    # decode depuis Base64 vers UTF-8
     clean_one = part_data.replace("-","+")
-    # decoding from Base64 to UTF-8
+    # decode depuis Base64 vers UTF-8
     clean_one = clean_one.replace("_","/") 
-    # decoding from Base64 to UTF-8
+    # decode depuis Base64 vers UTF-8
     clean_two = base64.b64decode (bytes(clean_one, 'UTF-8'))
     soup = BeautifulSoup(clean_two , "lxml" )
     #message=soup.body()
@@ -43,7 +43,7 @@ def clearBody(part_data):
 #                  Extrait les informations importantes du mail       #
 #######################################################################
 
-def ExtraitInfoMsg(service,message):
+def extraitInfoMsg(service,message):
     user_id = 'me'
     temp_dict = {} 
 
@@ -51,18 +51,18 @@ def ExtraitInfoMsg(service,message):
     temp_dict['id'] = message['id']
 
     # RECUPERE LES LABELS
-    temp_dict['Label'] = [] #on crée la clé 'Label'
+    temp_dict['Label'] = [] # on créer la clé 'Label'
     labelIds = message['labelIds']
     for labelId in labelIds:
-        label = service.users().labels().get(id=labelId,userId= user_id).execute() #on récupère le label
-        temp_dict['Label'].append(label['name']) #on stocke le nom du label
+        label = service.users().labels().get(id=labelId,userId= user_id).execute() # on récupère le label
+        temp_dict['Label'].append(label['name']) # on stocke le nom du label
 
     payld = message['payload'] # récupère le payload du message
     headr = payld['headers'] # récupère le header du payload
 
     # SI LE MAIL EST TRIE RECUPERE L'ID DU LABEL/FOLDER
-    #on vérfie si le mail possède un label de la forme "Label_*"
-    #si c'est le cas, cela veut dire que le mail a été trié par l'utilisateur et qu'il se situe dans le folder.
+    # on vérfie si le mail possède un label de la forme "Label_*"
+    # si c'est le cas, cela veut dire que le mail a été trié par l'utilisateur et qu'il se situe dans le folder.
     est_labelise = False
     expression = r"Label_*"
     for label in message['labelIds']:
@@ -105,14 +105,14 @@ def ExtraitInfoMsg(service,message):
     
     # RECUPERE LE CORPS
     try:
-        mssg_parts = payld['parts'] # fetching the message parts
-        part_one  = mssg_parts[0] # fetching first element of the part
-        part_body = part_one['body'] # fetching body of the message
+        mssg_parts = payld['parts'] # récupération des parties du message
+        part_one  = mssg_parts[0] # récupération du premier élément des parties
+        part_body = part_one['body'] # récupération du corps du message
         if part_body['size']==0:
            mssg_body =' '
         else: 
-            part_data = part_body['data'] # fetching data from the body
-            #on récupère le body au bon format 
+            part_data = part_body['data'] # récupération des données du corps
+            # on récupère le body au bon format 
             mssg_body = clearBody(part_data=part_data)
         temp_dict['Message_body'] = mssg_body
     except :

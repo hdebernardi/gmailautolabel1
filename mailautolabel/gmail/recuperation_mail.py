@@ -1,18 +1,18 @@
-from gmail.ExtractionInfoMail import *
+from gmail.extraction_info_mail import *
 import re
 
 #######################################################################
 #               Récupère tous les mails lablélisé, extrait les infos  #  
-#                    et les stockent dans une liste                   #
+#                    et les stocke dans une liste                     #
 #######################################################################
 
-def RecupAllMessages(service):
+def recupAllMessages(service):
     """
     Récupère tous les mails de la boite
     """
         
     print("On récupère tous les messages de la boite mail")
-    user_id =  'me'
+    user_id = 'me'
 
     # On récupère tous les messages
     response = service.users().messages().list(userId='me').execute()
@@ -28,15 +28,15 @@ def RecupAllMessages(service):
     print("Nombre total de mail: ",len(messages))
     return messages
 
-def AllMessage(service):
+def allMessage(service):
     """
     Parcourt tous les messages de la boite mail.
-    Si la case 'Folder' est == à False cela signifie que le mail n'est pas  labélisé on ne l'ajoute donc pas à la liste final.
+    Si la case 'Folder' est == à False cela signifie que le mail n'est pas labélisé on ne l'ajoute donc pas à la liste final.
     On retourne la liste finale
     """
         
     user_id = 'me'
-    messages = RecupAllMessages(service = service)
+    messages = recupAllMessages(service = service)
 
     final_list = [ ]
 
@@ -44,15 +44,15 @@ def AllMessage(service):
     # On parcourt chaque message
     i=0
     for mssg in messages:
-        print("Extraction info message ",i)
+        print("Extraction des info du message ",i)
         i+=1
         message = service.users().messages().get(userId=user_id, id=mssg['id']).execute()
-        temp_dict = ExtraitInfoMsg(service=service,message=message)
+        temp_dict = extrait_info_msg(service=service,message=message)
 
-        #Si le mail n'est pas labélisé on ne l'ajoute pas 
+        # Si le mail n'est pas labélisé on ne l'ajoute pas 
         if(temp_dict['Folder'] == 'False'):
             pass
-        #sinon on l'ajoute
+        # Sinon on l'ajoute
         else:
             final_list.append(temp_dict)
 
@@ -60,12 +60,12 @@ def AllMessage(service):
 
 #######################################################################
 #         Récupère tous les mails non labelisés, extrait les infos    #
-#             et les stockent dans une liste                          #
+#                et les stocke dans une liste                         #
 #######################################################################
 
-def RecupAllMessagesNonLabelises(service):
+def recupAllMessagesNonLabelises(service):
     """
-    Récupère tous les mails situés dans INBOX et les retournent dans une variable
+    Récupère tous les mails situés dans INBOX et les retourne dans une variable
     """
     
     label_id_one = 'INBOX'
@@ -88,20 +88,20 @@ def RecupAllMessagesNonLabelises(service):
     return messages
 
 
-def MessagesNonLabelises(service):
+def ressagesNonLabelises(service):
     """
     Parcourt tous les messages dans INBOX, extrait toutes les infos et retourne une liste final.
     """
     user_id = 'me'
-    messages = RecupAllMessagesNonLabelises(service = service)
+    messages = recupAllMessagesNonLabelises(service = service)
     final_list = [ ]
 
     i=0
     for mssg in messages:
-        print("Extraction info message ",i)
+        print("Extraction des info du message ",i)
         i+=1
         message = service.users().messages().get(userId=user_id, id=mssg['id']).execute()
-        temp_dict = ExtraitInfoMsg(service=service,message=message)
+        temp_dict = extraitInfoMsg(service=service,message=message)
         final_list.append(temp_dict)
 
     return final_list

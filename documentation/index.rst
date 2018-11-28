@@ -9,14 +9,13 @@ Welcome to GmailAddon's documentation!
 .. toctree::
    :maxdepth: 2
 
-   InterfaceGraphique
-   TestInterface
-   ExtractionInfoMail
-   RecuperationMail
+   interface_graphique
+   test_interface
+   extraction_info_mail
+   recuperation_mail
    connection
    mail
    supervised
-   unsupervised
 
 Indices and tables
 ==================

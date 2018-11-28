@@ -4,18 +4,18 @@ import imapclient
 
 ################################################################################
 def open(hostname, username, password, verbose=False):
-	# Connect to the server
+	# Connexion au serveur
 	if verbose :
-		print('Connecting to', hostname)
+		print('Connexion à', hostname)
 	connection = imapclient.IMAPClient(host=hostname)
 
-	# Login to our account
+	# Connexion à notre compte
 	if verbose:
-		print('Logging in as', username)
+		print('Connexion en tant que', username)
 	try:
 		connection.login(username, password)
-		print('Logged successfully')
+		print('Connecté avec succès')
 	except Exception as err:
-		print('ERROR:', err)
+		print('ERREUR:', err)
 
 	return connection

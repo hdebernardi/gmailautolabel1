@@ -14,7 +14,7 @@ def triMail(lab,texte):
 	- La fonction se sert à recuperer le label (zone de texte) et ecris "texte" dedans
 	 
 	 
-def AffichageTexteSimple(texte):
+def affichageTexteSimple(texte):
 	- Toute cette partie n'est pas dans une fonction spécifique pour pouvoir accéder au variable graphique dans tout le programme
 	- Cette partie gère seulement l'affichage graphique
 		- Pour la variable fenetre :
