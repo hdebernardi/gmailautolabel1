@@ -33,7 +33,7 @@ def allLabel(service):
 #######################################################################
 #                Ajout d'un label a un mail                           #
 #######################################################################
-def AjoutLabel(service,labelId,messageId):
+def ajoutLabel(service,labelId,messageId):
 	"""
 	Ajoute le label "labelId" au mail "messageId"
 	"""
@@ -45,17 +45,17 @@ def AjoutLabel(service,labelId,messageId):
 
 
 
-def creer_csv(username,service):
+def creerCsv(username,service):
         """
         Créer un fichier csv pour les mails déjà labélisés et
         ceux non labélisés
         """
         #on crée le fichier csv pour les mails déjà labélisés
-        final_list = AllMessage(service)
-        csv_helper.save_mails(username, final_list)
+        final_list = allMessage(service)
+        csv_helper.saveMails(username, final_list)
         #on crée le fichier csv pour les mails non labélisés
-        final_list = MessagesNonLabelises(service)
-        csv_helper.save_mails("NON_LABEL"+username, final_list)
+        final_list = messagesNonLabelises(service)
+        csv_helper.saveMails("NON_LABEL"+username, final_list)
 
 
 #######################################################################
@@ -63,9 +63,9 @@ def creer_csv(username,service):
 #######################################################################
 def connectGmail(username):
     """
-         Ce connecte au service de Gmail.
-         Si c'est la première connection de l'utilisateur, crée un fichier csv pour les mails labélisés et non labélisés.
-         Si ce n'est pas la première connection, soit on réentraine le modèle, soit on appel la fonction de ML et on labélise les mails.
+    Ce connecte au service de Gmail.
+    Si c'est la première connection de l'utilisateur, crée un fichier csv pour les mails labélisés et non labélisés.
+    Si ce n'est pas la première connection, soit on réentraine le modèle, soit on appelle la fonction de ML et on labélise les mails.
     """
     #On se connecte au service de gmail
     store = file.Storage('token.json')
@@ -77,24 +77,24 @@ def connectGmail(username):
    
 
     #Si aucun fichier csv n'est crée pour username, c'est une première connection
-    if(csv_helper.is_present(username) == 0):
+    if(csv_helper.isPresent(username) == 0):
         print("Première connection")
-        creer_csv(username,service)
+        creerCsv(username,service)
     #Sinon on propose deux choix à l'utilisateur
     else:
         choix=input("Désirez-vous:\n réentrainer votre IA (Taper 1)\n Labéliser vos mails (Taper 2)\n Saisir:")
         #Réentrainer l'IA
         if(choix == "1"):
-            creer_csv(username,service)
+            creerCsv(username,service)
         #Labéliser les mails
         else:
             print("--------------------------------------")
             print("MACHINE LEARNING")
-            mails_nonlab = csv_helper.to_dict("NON_LABEL"+username)
-            prediction = ml.supervised.supervised_with_nolabelling_mail(username)
+            mails_nonlab = csv_helper.toDict("NON_LABEL"+username)
+            prediction = ml.supervised.supervisedWithNolabellingMail(username)
             print("--------------------------------------")
             print("Labélisation des mails en cours")
             for i in range(len(prediction)):
-                AjoutLabel(service = service,labelId = prediction[i],messageId = mails_nonlab[i]['id'])
+                ajoutLabel(service = service,labelId = prediction[i],messageId = mails_nonlab[i]['id'])
 
     

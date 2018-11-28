@@ -2,15 +2,15 @@ import unittest
 
 class LauncherImap(unittest.TestCase):
     """Test de launcherImap.py"""
-    def test_show_mails(self):
+    def testShowMails(self):
         """ Test les mails """
         assert(True)
 
-    def test_apply_ml(self):
+    def testApplyMl(self):
         """ Test les mails """
         assert(True)
         
-    def test_connectImap(self):
+    def testConnectImap(self):
         """Test connexion imap"""
         assert(True)  
 

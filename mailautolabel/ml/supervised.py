@@ -69,7 +69,7 @@ def supervisedSplit(username):
 
 ##############################################################
 
-def supervised_with_nolabelling_mail(username):
+def supervisedWithNolabellingMail(username):
 	"""
 	On récupère les mails non labélisés et labélisés dans des df.
 	On fait un TF-IDF pour séparer tous les mots et affiche un "score" pour chacun.
@@ -77,12 +77,12 @@ def supervised_with_nolabelling_mail(username):
 	Une fois le classifier créé, on l'applique sur les mails non labélisés et on retourne un dictionnaire contenant tous les labels de prédictions.
 	"""
 	#On récupère les mails labélisés
-	filename = csv_helper.get_path(username)
+	filename = csv_helper.getPath(username)
 	csv.field_size_limit(sys.maxsize)
 	df = pandas.read_csv(filename, sep=",", engine="python", header=0)
 	
 	#On récupère les mails non labélisés
-	filename = csv_helper.get_path("NON_LABEL"+username)
+	filename = csv_helper.getPath("NON_LABEL"+username)
 	df2 = pandas.read_csv(filename, sep=",", engine="python", header=0)
 
 	#On prépare les arguments

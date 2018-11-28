@@ -3,15 +3,15 @@ import unittest
 class ExtractionInfoMail(unittest.TestCase):
     """Test ExtractionInfoMail"""
 
-    def test_afficheList(self):
+    def testAfficheList(self):
         """Test l'affichage du liste"""
         assert(True)
 
-    def clearBody(self):
+    def testclearBody(self):
         """Test l'efface du body"""
         assert(True)
 
-    def ExtraitInfoMsg(self):
+    def testExtraitInfoMsg(self):
         """Test l'extraction des infos du message"""
         assert(True)
 

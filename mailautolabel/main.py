@@ -1,14 +1,14 @@
 import sys
 import launcher_gmail
 import launcher_imap
-from graphics.InterfaceGraphique import AffichageTexteSimple
+from graphics.interface_graphique import affichageTexteSimple
 
 ######################################################################
 def main():
 	"""
 		Gère les arguments entrés par l'utilisateur.
-		-graphics Appel l'interface graphique
-		-imap Appel le launcher imap
+		-graphics : Appelle l'interface graphique
+		-imap : Appelle le launcher imap
 		Sans arguments: Appel le launcher gmail
 	"""
 	
@@ -24,7 +24,7 @@ def main():
  
 	############################## Argument -graphics
 	if flag_graphics == True:
-		AffichageTexteSimple("L'affichage de texte fonctionne bien.\n"
+		affichageTexteSimple("L'affichage de texte fonctionne bien.\n"
 					" Il suffit d'appeler la fonction avec texte.\n"
 					" Texte etant ce qu'on veux afficher.")
 
@@ -35,9 +35,9 @@ def main():
 	password = 'm1-luminy'
 
 	if flag_imap == True:
-		launcherImap.connectImap(hostname=hostname,username=username,password=password)
+		launcher_imap.connectImap(hostname=hostname,username=username,password=password)
 	else:
-		launcherGmail.connectGmail(username = username)
+		launcher_gmail.connectGmail(username=username)
 	
 
 	
