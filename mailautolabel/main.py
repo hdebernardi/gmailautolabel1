@@ -1,6 +1,6 @@
 import sys
-import launcherGmail
-import launcherImap
+import launcher_gmail
+import launcher_imap
 from graphics.InterfaceGraphique import AffichageTexteSimple
 
 ######################################################################
