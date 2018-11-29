@@ -32,7 +32,7 @@ def main():
 	# pour faciliter les tests
 	hostname = 'imap.gmail.com'
 	username = 'chucknorrism1luminy@gmail.com'
-	password = 'm1-luminy'
+	password = 'm1luminy'
 
 	if flag_imap == True:
 		launcher_imap.connectImap(hostname=hostname,username=username,password=password)
