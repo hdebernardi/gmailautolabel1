@@ -1,7 +1,7 @@
 import sys
 import launcher_gmail
 import launcher_imap
-from graphics.interface_graphique import affichageTexteSimple
+from interface_graphique import affichageTexteSimple
 
 ######################################################################
 def main():
@@ -12,21 +12,28 @@ def main():
 		Sans arguments: Appel le launcher gmail
 	"""
 	
-	print("----------------GMAIL AUTOLABEL 1----------------------")
-
+	
 	flag_graphics = False
 	flag_imap = False
 	for arg in sys.argv:
 		if arg == "-graphics":
 			flag_graphics = True
 		elif arg == "-imap":
-			flag_imap = True	
+			flag_imap = True
+	
+		
+	
+	if(flag_graphics==False):
+ 		print("----------------GMAIL AUTOLABEL 1----------------------")
+
  
 	############################## Argument -graphics
 	if flag_graphics == True:
+		username = 'pvesse2@gmail.com'
 		affichageTexteSimple("L'affichage de texte fonctionne bien.\n"
 					" Il suffit d'appeler la fonction avec texte.\n"
-					" Texte etant ce qu'on veux afficher.")
+					" Texte etant ce qu'on veux afficher.",username=username)
+		return
 
 	############################## Argument -imap
 	# pour faciliter les tests

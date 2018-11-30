@@ -6,12 +6,17 @@ import re
 #                    et les stocke dans une liste                     #
 #######################################################################
 
-def recupAllMessages(service):
+def recupAllMessages(service,label=None,fenetre=None):
     """
     Récupère tous les mails de la boite
     """
+    
+    if(label==None):    
+        print("On récupère tous les messages de la boite mail")
+    else:
+        label['text'] = "On récupère tous les messages de la boite mail\n"
+        fenetre.update()
         
-    print("On récupère tous les messages de la boite mail")
     user_id = 'me'
 
     # On récupère tous les messages
@@ -24,11 +29,15 @@ def recupAllMessages(service):
       page_token = response['nextPageToken']
       response = service.users().messages().list(userId='me', pageToken=page_token).execute()
       messages.extend(response['messages'])
-      
-    print("Nombre total de mail: ",len(messages))
+    
+    if(label==None):  
+        print("Nombre total de mail: ",len(messages))
+    else:
+        label['text'] += "Nombre total de mail: " + str(len(messages))+ "\n"
+        fenetre.update()
     return messages
 
-def allMessage(service):
+def allMessage(service,label=None,fenetre=None):
     """
     Parcourt tous les messages de la boite mail.
     Si la case 'Folder' est == à False cela signifie que le mail n'est pas labélisé on ne l'ajoute donc pas à la liste final.
@@ -36,18 +45,30 @@ def allMessage(service):
     """
         
     user_id = 'me'
-    messages = recupAllMessages(service = service)
+    
+    if(label==None):
+        messages = recupAllMessages(service=service)
+    else:
+    	messages = recupAllMessages(service=service,label=label,fenetre=fenetre)
 
     final_list = [ ]
-
-    print("On extrait les informations pour chaque mails")
+    
+    if(label==None):
+    	print("On extrait les informations pour chaque mails")
+    else:
+    	label['text'] += "On extrait les informations pour chaque mails\n"
+    	fenetre.update()
     # On parcourt chaque message
     i=0
     for mssg in messages:
-        print("Extraction des info du message ",i)
+        if(label==None):
+        	print("Extraction des info du message ",i)
+        else:
+        	label['text'] += "Extraction des info du message "+ str(i) +"\n"
+        	fenetre.update()
         i+=1
         message = service.users().messages().get(userId=user_id, id=mssg['id']).execute()
-        temp_dict = extrait_info_msg(service=service,message=message)
+        temp_dict = extraitInfoMsg(service=service,message=message)
 
         # Si le mail n'est pas labélisé on ne l'ajoute pas 
         if(temp_dict['Folder'] == 'False'):
@@ -63,14 +84,19 @@ def allMessage(service):
 #                et les stocke dans une liste                         #
 #######################################################################
 
-def recupAllMessagesNonLabelises(service):
+def recupAllMessagesNonLabelises(service,label=None,fenetre=None):
     """
     Récupère tous les mails situés dans INBOX et les retourne dans une variable
     """
     
     label_id_one = 'INBOX'
-
-    print("On récupère tous les messages dans la boite de réception")
+    
+    if(label==None):
+        print("On récupère tous les messages dans la boite de réception")
+    else:
+        label['text'] += "On récupère tous les messages dans la boite de réception\n"
+        fenetre.update()
+        
     user_id =  'me'
 
     # On récupère tous les messages
@@ -84,21 +110,33 @@ def recupAllMessagesNonLabelises(service):
       response = service.users().messages().list(userId='me', pageToken=page_token).execute()
       messages.extend(response['messages'])
       
-    print("Nombre total de mail: ",len(messages))
+    if(label==None):
+        print("Nombre total de mail dans la boite de reception: ",len(messages))
+    else:
+        label['text'] += "Nombre total de mail dans la boite de reception " + str(len(messages)) +"\n"
+        fenetre.update()
+        
     return messages
 
 
-def ressagesNonLabelises(service):
+def messagesNonLabelises(service,label=None,fenetre=None):
     """
     Parcourt tous les messages dans INBOX, extrait toutes les infos et retourne une liste final.
     """
     user_id = 'me'
-    messages = recupAllMessagesNonLabelises(service = service)
+    if(label==None):
+        messages = recupAllMessagesNonLabelises(service=service)
+    else:
+        messages = recupAllMessagesNonLabelises(service=service,label=label,fenetre=fenetre)
     final_list = [ ]
 
     i=0
     for mssg in messages:
-        print("Extraction des info du message ",i)
+        if(label==None):
+        	print("Extraction des info du message ",i)
+        else:
+                label['text'] += "Extraction des info du message " + str(i) + "\n"
+                fenetre.update()
         i+=1
         message = service.users().messages().get(userId=user_id, id=mssg['id']).execute()
         temp_dict = extraitInfoMsg(service=service,message=message)

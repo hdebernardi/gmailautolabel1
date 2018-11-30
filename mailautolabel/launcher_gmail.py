@@ -9,6 +9,8 @@ from gmail.recuperation_mail import *
 import ml.supervised
 import csv_helper
 
+from tkinter.messagebox import *
+
 # Si vous modifiez ces `SCOPES`, supprimez le fichier `token.json`.
 SCOPES = 'https://www.googleapis.com/auth/gmail.modify'
 
@@ -45,23 +47,29 @@ def ajoutLabel(service,labelId,messageId):
 
 
 
-def creerCsv(username,service):
+def creerCsv(username,service,label=None,fenetre=None):
         """
         Créer un fichier csv pour les mails déjà labélisés et
         ceux non labélisés
         """
         #on crée le fichier csv pour les mails déjà labélisés
-        final_list = allMessage(service)
+        if (label==None):
+        	final_list = allMessage(service)
+        else:
+        	final_list = allMessage(service,label,fenetre=fenetre)
         csv_helper.saveMails(username, final_list)
         #on crée le fichier csv pour les mails non labélisés
-        final_list = messagesNonLabelises(service)
+        if(label==None):
+            final_list = messagesNonLabelises(service)
+        else:
+            final_list = messagesNonLabelises(service,label,fenetre)
         csv_helper.saveMails("NON_LABEL"+username, final_list)
 
 
 #######################################################################
 #  			 Fonction principale                          #
 #######################################################################
-def connectGmail(username):
+def connectGmail(username,label=None,fenetre=None):
     """
     Ce connecte au service de Gmail.
     Si c'est la première connection de l'utilisateur, crée un fichier csv pour les mails labélisés et non labélisés.
@@ -82,19 +90,38 @@ def connectGmail(username):
         creerCsv(username,service)
     #Sinon on propose deux choix à l'utilisateur
     else:
-        choix=input("Désirez-vous:\n réentrainer votre IA (Taper 1)\n Labéliser vos mails (Taper 2)\n Saisir:")
-        #Réentrainer l'IA
-        if(choix == "1"):
-            creerCsv(username,service)
-        #Labéliser les mails
-        else:
-            print("--------------------------------------")
-            print("MACHINE LEARNING")
-            mails_nonlab = csv_helper.toDict("NON_LABEL"+username)
-            prediction = ml.supervised.supervisedWithNolabellingMail(username)
-            print("--------------------------------------")
-            print("Labélisation des mails en cours")
-            for i in range(len(prediction)):
-                ajoutLabel(service = service,labelId = prediction[i],messageId = mails_nonlab[i]['id'])
+    	if(label==None):
+        	choix=input("Désirez-vous:\n réentrainer votre IA (Taper 1)\n Labéliser vos mails (Taper 2)\n Saisir:")
+        	#Réentrainer l'IA
+        	if(choix == "1"):
+            		creerCsv(username,service)
+        		#Labéliser les mails
+        	else:
+            		print("--------------------------------------")
+            		print("MACHINE LEARNING")
+            		mails_nonlab = csv_helper.toDict("NON_LABEL"+username)
+            		prediction = ml.supervised.supervisedWithNolabellingMail(username)
+            		print("--------------------------------------")
+            		print("Labélisation des mails en cours")
+            		for i in range(len(prediction)):
+                		ajoutLabel(service = service,labelId = prediction[i],messageId = mails_nonlab[i]['id'])
+    	else:
+    	    if askyesno("Entrainement de l'IA", "Désirez-vous réentrainer votre IA ?"):
+    	        creerCsv(username,service,label=label,fenetre=fenetre)
+    	        label['text'] += "IA Entrainée !"
+        		#Labéliser les mails
+    	    else:
+        	    label['text'] = "--------------------------------------"
+        	    label['text'] += "\n"
+        	    label['text'] += "MACHINE LEARNING"
+        	    mails_nonlab = csv_helper.toDict("NON_LABEL"+username)
+        	    prediction = ml.supervised.supervisedWithNolabellingMail(username)
+        	    label['text'] += "\n"
+        	    label['text'] += "--------------------------------------"
+        	    label['text'] += "\n"
+        	    label['text'] += "Labélisation des mails en cours"
+        	    for i in range(len(prediction)):
+        	    	ajoutLabel(service = service,labelId = prediction[i],messageId = mails_nonlab[i]['id'])
+
 
     
