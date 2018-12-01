@@ -21,7 +21,7 @@ Then, just navigate at the root of this project and run :
 ### Connection to Gmail API
 
 To connect to gmail, you should follow these instructions :
-  - https://developers.google.com/gmail/api/quickstart/python?refresh=1
+  - https://developers.google.com/gmail/api/quickstart/python
   - although the whole page is interesting, you could only follow step 1 to have a working project
 
 ### Running mailautolabel
