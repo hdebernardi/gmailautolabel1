@@ -1,9 +1,3 @@
-# next line create a virtual environment to install python modules localy
-#virtualenv env
-
-# next line activate the virtual environment
-#source env/bin/activate
-
 # install required modules
 all:
 	pip install -r requirements.txt

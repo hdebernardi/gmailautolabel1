@@ -8,7 +8,6 @@ import imap.mail
 import csv_helper
 import ml
 
-################################################################################
 def showMails(mails):
 	for mail in mails:
 		print('-'*80)
@@ -16,9 +15,6 @@ def showMails(mails):
 			print('{:30} : {}'.format(k, v))
 
 
-##########################################################################
-
-################################################################################
 def applyMl(mails):
 	data={'text': []}
 	
@@ -31,14 +27,12 @@ def applyMl(mails):
 	print('-'*80)
 	ml.unsupervised.get_scores(data)
 
-################################################################################
 
 def connectImap(hostname,username,password):
 	# context manager assure que la session est nettoyée
 	with imap.connection.open(hostname, username, password, verbose=True) as c:
 		full_mails = imap.mail.getMails(c, verbose=True)
 		mails = imap.mail.getUsefulPartsOfMails(full_mails)
-	
 		csv_helper.saveMails(username, mails)
 		showMails(mails)
 		#applyMl(mails)
