@@ -1,5 +1,5 @@
 # Git
-.git/
+git/
 
 # Byte-compiled
 __pycache__/
@@ -8,7 +8,7 @@ __pycache__/
 env/
 
 # IPython Notebook
-.ipynb_checkpoints/
+ipynb_checkpoints/
 
 # Vscode
-.vscode/
+vscode/
