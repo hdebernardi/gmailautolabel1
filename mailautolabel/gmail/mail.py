@@ -1,5 +1,4 @@
 import dateutil.parser, base64, sys, bs4, re
-import gmail.connection
 
 def ajoutLabel(service, labelId, messageId):
 	"""
@@ -49,22 +48,22 @@ def extraitInfoMsg(message):
             extracted_message['date']
             extracted_message['from']
             break
-        except Exception as err:
+        except Exception:
             continue
 
     try:
         encoded_mail = payload['parts'][0]['body']['data']
         body = clearBody(encoded_mail)
         extracted_message['body'] = body
-    except Exception as err:
-        print(err)
-        sys.exit(2)
+    except Exception:
+        #print(err)
+        #sys.exit(2)
+        pass
     
     # traitement des labels
     expression = r'Label_*'
     for label in message['labelIds']:
         if re.search(expression, label) is not None:
-            labelise = True
             extracted_message['folder'] = label
             break
 

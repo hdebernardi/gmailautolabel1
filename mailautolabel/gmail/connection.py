@@ -16,7 +16,7 @@ def open(verbose=False):
 			# Si vous modifiez ces `SCOPES`, supprimez le fichier `token.json`.
 			SCOPES = 'https://www.googleapis.com/auth/gmail.modify'
 
-			flow = client.flow_from_clientsecrets('mailautolabel/gmail/credentials1.json', SCOPES)
+			flow = client.flow_from_clientsecrets('mailautolabel/gmail/credentials.json', SCOPES)
 			creds = tools.run_flow(flow, store)
 		
 		return build('gmail', 'v1', http=creds.authorize(Http()))

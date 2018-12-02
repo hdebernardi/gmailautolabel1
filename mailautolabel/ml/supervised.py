@@ -16,7 +16,7 @@ def predictLabel(labelised, unlabelised):
 	Une fois le classifier créé, on l'applique sur les mails non labélisés et on retourne un dictionnaire contenant tous les labels de prédictions.
 	"""
 	#On récupère les mails labélisés
-	filename = csv_helper.getPath(''username)
+	filename = csv_helper.getPath(''+ username)
 	df = pandas.read_csv(filename, sep=",", engine="python", header=0)
 	
 	#On récupère les mails non labélisés

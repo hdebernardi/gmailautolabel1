@@ -39,7 +39,7 @@ def main(argv):
 	password = 'm1luminy'
 
 	for arg in argv:
-		if arg == '-imap':
+		if arg == '--imap':
 			start = time.time()
 			imapExtractor(
 				hostname=hostname,
@@ -49,13 +49,11 @@ def main(argv):
 			end = time.time()
 			print('Execution time {}'.format(end - start))
 			return True
-		
-		if arg == '-gmail':
-			start = time.time()
-			gmailExtractor(username, verbose=True)
-			end = time.time()
-			print('Execution time {}'.format(end - start))
-			return True
+	
+	start = time.time()
+	gmailExtractor(username, verbose=True)
+	end = time.time()
+	print('Execution time {}'.format(end - start))
 
 	"""	unixOptions = 'he'
 		gnuOptions = ['help', 'extractor=']
@@ -94,6 +92,8 @@ def main(argv):
 			elif currentArg in ('-h', '--help'):
 				print('Display help here...')
 	"""
-	
+
+	return True
+
 if __name__ == '__main__':
 	main(sys.argv)
