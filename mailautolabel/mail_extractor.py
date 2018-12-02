@@ -33,67 +33,59 @@ def gmailExtractor(username, verbose):
 
 
 def main(argv):
-	hostname = 'imap.gmail.com'
-	#username = 'm1.autolabel1@gmail.com'
-	username = 'chucknorrism1luminy@gmail.com'
-	password = 'm1luminy'
+	unixOptions = 'he'
+	gnuOptions = ['help', 'extractor=']
 
-	for arg in argv:
-		if arg == '--imap':
-			start = time.time()
-			imapExtractor(
-				hostname=hostname,
-				username=username,
-				password=password,
-				verbose=True)
-			end = time.time()
-			print('Execution time {}'.format(end - start))
-			return True
+	try:
+		arguments, values = getopt.getopt(argv, unixOptions, gnuOptions)
+	except getopt.error as err:
+		print(str(err))
+		sys.exit(1)
 	
+	print(arguments, values)
+	"""
+	if len(arguments) == 0:
+		print('You must choose an extractor between imap and gmail')
+		sys.exit(1)
+	"""
+	hostname = 'imap.gmail.com'
+	username = 'm1.autolabel1@gmail.com'
+	password = 'm1-luminy'
+
+	for currentArg, currentValue in arguments:
+		if currentArg in ('-e', '--extractor'):
+
+			if currentValue == 'imap':
+				start = time.time()
+				imapExtractor(
+					hostname=hostname,
+					username=username,
+					password=password,
+					verbose=True)
+				end = time.time()
+				print('Execution time {}'.format(end - start))
+				return True
+
+			elif currentValue == 'gmail':
+				start = time.time()
+				gmailExtractor(
+					username=username,
+					verbose=True)
+				end = time.time()
+				print('Execution time {}'.format(end - start))
+				return True
+			else:
+				print('Invalid extractor')
+				sys.exit(1)
+		elif currentArg in ('-h', '--help'):
+			print('Display help here...')
+
 	start = time.time()
-	gmailExtractor(username, verbose=True)
+	gmailExtractor(
+		username=username,
+		verbose=True)
 	end = time.time()
 	print('Execution time {}'.format(end - start))
 
-	"""	unixOptions = 'he'
-		gnuOptions = ['help', 'extractor=']
-
-		try:
-			arguments, values = getopt.getopt(argv, unixOptions, gnuOptions)
-		except getopt.error as err:
-			print(str(err))
-			sys.exit(2)
-
-		if len(arguments) == 0:
-			print('You must choose an extractor between imap and gmail')
-			sys.exit(2)
-
-		hostname = 'imap.gmail.com'
-		username = 'chucknorrism1luminy@gmail.com'
-		password = 'm1luminy'
-
-		for currentArg, currentValue in arguments:
-			if currentArg in ('-e', '--extractor'):
-
-				if currentValue == 'imap':
-					imapExtractor(
-						hostname=hostname,
-						username=username,
-						password=password,
-						verbose=True)
-
-				elif currentValue == 'gmail':
-					gmailExtractor(
-						username=username,
-						verbose=True)
-				else:
-					print('Invalid extractor')
-					sys.exit(2)
-			elif currentArg in ('-h', '--help'):
-				print('Display help here...')
-	"""
-
-	return True
-
 if __name__ == '__main__':
-	main(sys.argv)
+	main(sys.argv[1:])

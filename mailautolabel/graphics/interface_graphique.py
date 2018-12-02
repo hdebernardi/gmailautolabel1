@@ -1,14 +1,11 @@
 from tkinter import * 
 import tkinter.font
 from tkinter.messagebox import *
-import time
-
 
 
 #Fonction triMail qui devrait trier les mails et actualiser l'affichage
 def triMail(lab,texte):
 	lab['text'] = texte	#Ajout de texte au label
-
 
 def affichageTexteSimple(texte):
 	#Création d'une fenetre 
@@ -22,7 +19,7 @@ def affichageTexteSimple(texte):
 	label = Label(fenetre)			#Création zone pour texte
 	label.configure(text="Bienvenue dans le logiciel d'automatisation de labels !")	#Texte à écrire
 	label.configure(width=106)		#Taille de la zone de texte
-	label.configure(font=police);	#On applique la police au label
+	label.configure(font=police)	#On applique la police au label
 	label.pack()					#On place la zone
 	
 	
@@ -33,7 +30,7 @@ def affichageTexteSimple(texte):
 	#Création de la zone pour le bouton et pour l'affichage des mail
 	p = PanedWindow(fenetre, orient=HORIZONTAL)
 	lab=Label(p, background='black',text="Rien pour le moment",fg='green', anchor=CENTER,width=1000)
-	lab.configure(font=police2);
+	lab.configure(font=police2)
 	#fg pour régler la couleur du texte
 	#width règle la taille du label
 	#background gère la couleur du fond

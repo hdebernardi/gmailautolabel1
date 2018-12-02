@@ -1,6 +1,6 @@
 import dateutil.parser, base64, sys, bs4, re
 
-def ajoutLabel(service, labelId, messageId):
+def ajoutLabel(service, messageId, labelId):
 	"""
 	Ajoute le label "labelId" au mail "messageId"
 	"""
@@ -52,12 +52,13 @@ def extraitInfoMsg(message):
             continue
 
     try:
-        encoded_mail = payload['parts'][0]['body']['data']
-        body = clearBody(encoded_mail)
+        encoded_mail = payload['parts'][0]['body']
+        if(encoded_mail['size'] == 0):
+            body = ' '
+        else:
+            body = clearBody(encoded_mail['data'])
         extracted_message['body'] = body
     except Exception:
-        #print(err)
-        #sys.exit(2)
         pass
     
     # traitement des labels
@@ -91,7 +92,10 @@ def getMails(service):
 
     ids = getIds(service)
 
+    index = 1
     for id in ids:
+        print('#', index)
+        index += 1
         mail = service.users().messages().get(
             userId='me', id=id['id']).execute()
         

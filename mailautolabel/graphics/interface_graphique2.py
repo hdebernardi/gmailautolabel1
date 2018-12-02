@@ -1,17 +1,14 @@
 from tkinter import * 
 import tkinter.font
 from tkinter.messagebox import *
-import time
-import launcher_gmail
-
-
+import sys
 
 #Fonction triMail qui devrait trier les mails et actualiser l'affichage
 def triMail(lab,texte):
 	lab['text'] = texte	#Ajout de texte au label
 
 
-def affichageTexteSimple(texte,username):
+def affichageTexteSimple(username):
 	#Création d'une fenetre 
 	fenetre = Tk()	
 	fenetre.geometry("1000x1000") #Définition de la taille de base de la fenètre
@@ -23,7 +20,7 @@ def affichageTexteSimple(texte,username):
 	label = Label(fenetre)			#Création zone pour texte
 	label.configure(text="Bienvenue dans le logiciel d'automatisation de labels !")	#Texte à écrire
 	label.configure(width=106)		#Taille de la zone de texte
-	label.configure(font=police);	#On applique la police au label
+	label.configure(font=police)	#On applique la police au label
 	label.pack()					#On place la zone
 	
 	
@@ -34,14 +31,15 @@ def affichageTexteSimple(texte,username):
 	#Création de la zone pour le bouton et pour l'affichage des mail
 	p = PanedWindow(fenetre, orient=HORIZONTAL)
 	lab=Label(p, background='black',text="Rien pour le moment",fg='green', anchor=CENTER,width=1000)
-	lab.configure(font=police2);
+	lab.configure(font=police2)
 	#fg pour régler la couleur du texte
 	#width règle la taille du label
 	#background gère la couleur du fond
 	p.pack(side=TOP,expand=Y, fill=BOTH, pady=2, padx=2)
 	#pady et padx gère les "marges"
 	#text="AAA"
-	p.add(Button(fenetre, text="Trier les mails",width=20, command=lambda:launcher_gmail.connectGmail(username=username,label=lab,fenetre=fenetre))) 
+	#p.add(Button(fenetre, text="Trier les mails",width=20, command=lambda:mail_extractor.main(sys.argv)))
+	#p.add(Button(fenetre, text="Trier les mails",width=20, command=lambda:mail_labelizer.main(sys.argv))) 
 	#Si pas lambda alors la fonction se lance en auto
 	#Bouton de tri des mails et l'affichage
 	#Il a une valeur texte de base
