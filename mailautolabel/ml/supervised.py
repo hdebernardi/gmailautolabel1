@@ -20,53 +20,6 @@ import csv_helper
 import sys
 import csv
 
-#######################################
-#### voir le fichier .ipynb sur jupyter pour mieux comprendre
-def supervisedSplit(username):
-
-	filename4 = csv_helper.get_path(username)
-
-
-	csv.field_size_limit(sys.maxsize)
-	df = pandas.read_csv(filename4, sep=",", engine="python", header=0)
-	"""# show first matrix lines"""
-
-	#np.transpose(df.head())
-
-	"""# split train_test"""
-
-	X = df.drop(['Folder'], axis=1)
-	y = pandas.DataFrame(df['Folder'])
-
-	test_size = 0.30
-	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=42)
-
-	print('X : {}\nY : {}'.format(X.shape, y.shape))
-	print('X_train : {}\nX_test : {}\ny_train : {}\ny_test : {}'.format(
-	    X_train.shape, X_test.shape, y_train.shape, y_test.shape))
-
-	"""# TF-IDF vectorizer"""
-
-	vectorizer = TfidfVectorizer(analyzer="word")
-	X_train_vec = vectorizer.fit_transform(X_train['Message_body'].values.astype('U'))
-	X_train_vec = pandas.DataFrame(X_train_vec.todense(), columns=vectorizer.get_feature_names())
-
-	X_test_vec = vectorizer.transform(X_test['Message_body'].values.astype('U'))
-	X_test_vec = pandas.DataFrame(X_test_vec.todense(), columns=vectorizer.get_feature_names())
-	X_test_vec.shape
-
-	print('X_train_vec {}\nX_test_vec {}'.format(X_train_vec.shape, X_test_vec.shape))
-
-	"""# Logistic regression"""
-
-	classifier = LogisticRegression(class_weight='balanced')
-	y_train = np.ravel(y_train)
-	print(classifier.fit(X_train_vec, y_train))
-
-	predicts = classifier.predict(X_test_vec)
-	print(precision_score(predicts, y_test, average='macro'))
-	return predicts
-
 ##############################################################
 
 def supervisedWithNolabellingMail(username):
@@ -80,9 +33,11 @@ def supervisedWithNolabellingMail(username):
 	filename = csv_helper.getPath(username)
 	csv.field_size_limit(sys.maxsize)
 	df = pandas.read_csv(filename, sep=",", engine="python", header=0)
-	
+
 	#On récupère les mails non labélisés
 	filename = csv_helper.getPath("NON_LABEL"+username)
+	print(filename)
+	#sys.exit(0)
 	df2 = pandas.read_csv(filename, sep=",", engine="python", header=0)
 
 	#On prépare les arguments
@@ -91,7 +46,7 @@ def supervisedWithNolabellingMail(username):
 
 	X_train = X
 	y_train = y
-	X_test = df2.drop(['Folder'], axis=1)
+	X_test = df2
 	
 
 	print('X : {}\nY : {}'.format(X.shape, y.shape))
