@@ -50,54 +50,30 @@ def extraitInfoMsg(service,message):
     # RECUPERE L'ID
     temp_dict['id'] = message['id']
 
-    # RECUPERE LES LABELS
-    temp_dict['Label'] = [] # on créer la clé 'Label'
-    labelIds = message['labelIds']
-    for labelId in labelIds:
-        label = service.users().labels().get(id=labelId,userId= user_id).execute() # on récupère le label
-        temp_dict['Label'].append(label['name']) # on stocke le nom du label
+    # SI LE MAIL EST TRIE RECUPERE L'ID DU LABEL/FOLDER
+    # on vérfie si le mail possède un label de la forme "Label_*"
+    # si c'est le cas, cela veut dire que le mail a été trié par l'utilisateur et qu'il se situe dans le folder.
+    expression = r"Label_*"
+    for label in message['labelIds']:
+        if re.search(expression, label) is not None:
+            temp_dict['Folder'] = label
 
     payld = message['payload'] # récupère le payload du message
     headr = payld['headers'] # récupère le header du payload
 
-    # SI LE MAIL EST TRIE RECUPERE L'ID DU LABEL/FOLDER
-    # on vérfie si le mail possède un label de la forme "Label_*"
-    # si c'est le cas, cela veut dire que le mail a été trié par l'utilisateur et qu'il se situe dans le folder.
-    est_labelise = False
-    expression = r"Label_*"
-    for label in message['labelIds']:
-        if re.search(expression, label) is not None:
-            est_labelise = True
-            temp_dict['Folder'] = label
+    for each in headr:
+        #recup le nom
+        if each['name'] == 'Subject':
+            temp_dict['Subject']  = each['value']
 
-    if est_labelise == False:
-        temp_dict['Folder'] = 'False'
+        #recup la date
+        if each['name'] == 'Date':
+            date_parse = (parser.parse(each['value']))
+            temp_dict['Date'] = str(date_parse.date())
 
-    # RECUPERE LE SUJET
-    for one in headr:
-        if one['name'] == 'Subject':
-            msg_subject = one['value']
-            temp_dict['Subject'] = msg_subject
-        else:
-            pass
-
-    # RECUPERE LA DATE
-    for two in headr:
-        if two['name'] == 'Date':
-            msg_date = two['value']
-            date_parse = (parser.parse(msg_date))
-            m_date = (date_parse.date())
-            temp_dict['Date'] = str(m_date)
-        else:
-            pass
-
-    # RECUPERE L'EXPEDITEUR
-    for three in headr:
-        if three['name'] == 'From':
-            msg_from = three['value']
-            temp_dict['Sender'] = msg_from
-        else:
-            pass
+        #recup l'expéditeur
+        if each['name'] == 'From':
+            temp_dict['Sender'] = each['value']
 
 
     # RECUPERE LE SNIPPET
@@ -119,16 +95,3 @@ def extraitInfoMsg(service,message):
         pass
 
     return temp_dict
-    '''
-    temp_dict:
-    {
-    'id': id of mail	
-    'Sender': '"email.com" <name@email.com>', 
-    'Subject': 'Lorem ipsum dolor sit ametLorem ipsum dolor sit amet', 
-    'Date': 'yyyy-mm-dd', 
-    'Snippet': 'Lorem ipsum dolor sit amet'
-    'Message_body': 'Lorem ipsum dolor sit amet'
-    'Label': [ , , ]
-    'Folder': Label mis par l'utilisateur (optional)
-    }
-    '''
