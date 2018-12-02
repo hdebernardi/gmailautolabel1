@@ -1,6 +1,7 @@
-import os, csv
-import pandas as pd
+import csv
+import os
 
+#######################################################################
 def getPath(username):
     """
     Renvoie le chemin absolu du fichier "username".csv
@@ -14,9 +15,10 @@ def getPath(username):
     rel_path = os.path.join("data", username+".csv")
     # Chemin correct du fichier
     abs_path = os.path.join(root, rel_path)
-    return abs_path
+    return abs_path   
 
 
+#######################################################################
 def isPresent(username):
     """
     Retourne 1 si le chemin "username".csv est présent, 0 sinon
@@ -31,6 +33,7 @@ def isPresent(username):
     return 1 #Fichier présent
 
 
+######################################################################
 def toDict(username):
     """
     Retourne un dictionnaire depuis un fichier csv
@@ -46,7 +49,8 @@ def toDict(username):
     
     return rv
 
-
+################################################################################
+import pandas as pd
 def saveMails(username, mails):
 	"""
     Créer un fichier csv depuis un dictionnaire

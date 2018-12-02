@@ -1,6 +1,8 @@
 # -*- coding: <utf-8> -*-
 
-import email, chardet, bs4
+import email
+import chardet
+import bs4
 
 ################################################################################
 def decodeHtml(html):
@@ -8,9 +10,9 @@ def decodeHtml(html):
 	
 	# Détruit tous les éléments de script et de style
 	for script in soup(['script', 'style']):
-		script.extract()
+		script.extract() # l'enlève
 
-	# Récupère le texte
+	# Récupère le text
 	text = soup.get_text()
 
 	# Divise en lignes et enlève les espaces à gauche et à droite sur chacune d'elles
@@ -126,7 +128,7 @@ def getMails(connection, verbose=False):
 	return all_messages
 
 ################################################################################
-def standardizeMails(mails):
+def getUsefulPartsOfMails(mails):
 	all_mails = []
 
 	data = [[k,v] for mail in mails for k, v in mail.items()] 

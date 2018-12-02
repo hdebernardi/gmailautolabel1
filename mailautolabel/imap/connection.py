@@ -1,5 +1,8 @@
+# -*- coding: <utf-8> -*-
+
 import imapclient
 
+################################################################################
 def open(hostname, username, password, verbose=False):
 	# Connexion au serveur
 	if verbose :
@@ -12,7 +15,7 @@ def open(hostname, username, password, verbose=False):
 	try:
 		connection.login(username, password)
 		print('Connecté avec succès')
-		return connection
 	except Exception as err:
 		print('ERREUR:', err)
-		sys.exit(2)
+
+	return connection
