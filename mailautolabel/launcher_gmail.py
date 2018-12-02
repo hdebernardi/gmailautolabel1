@@ -48,22 +48,21 @@ def ajoutLabel(service,labelId,messageId):
 
 
 def creerCsv(username,service,label=None,fenetre=None):
-        """
-        Créer un fichier csv pour les mails déjà labélisés et
-        ceux non labélisés
-        """
-        #on crée le fichier csv pour les mails déjà labélisés
-        if (label==None):
-        	final_list = allMessage(service)
+    """
+    Créer un fichier csv pour les mails déjà labélisés et
+    ceux non labélisés
+    """
+    allMails = allMessage(service)
+    labelisedMails = []
+    unlabelisedMails = []
+    for mail in allMails:
+        if('Folder' in mail): 
+            labelisedMails.append(mail)
         else:
-        	final_list = allMessage(service,label,fenetre=fenetre)
-        csv_helper.saveMails(username, final_list)
-        #on crée le fichier csv pour les mails non labélisés
-        if(label==None):
-            final_list = messagesNonLabelises(service)
-        else:
-            final_list = messagesNonLabelises(service,label,fenetre)
-        csv_helper.saveMails("NON_LABEL"+username, final_list)
+            unlabelisedMails.append(mail)
+       
+    csv_helper.saveMails(username, labelisedMails)
+    csv_helper.saveMails("NON_LABEL"+username,unlabelisedMails)
 
 
 #######################################################################
