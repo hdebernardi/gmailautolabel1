@@ -26,21 +26,19 @@ def main():
 	if(flag_graphics==False):
  		print("----------------GMAIL AUTOLABEL 1----------------------")
 
- 
+ 	# pour faciliter les tests
+	hostname = 'imap.gmail.com'
+	username = 'chucknorrism1luminy@gmail.com'
+	password = 'm1luminy'
+	
 	############################## Argument -graphics
 	if flag_graphics == True:
-		username = 'pvesse2@gmail.com'
 		affichageTexteSimple("L'affichage de texte fonctionne bien.\n"
 					" Il suffit d'appeler la fonction avec texte.\n"
 					" Texte etant ce qu'on veux afficher.",username=username)
 		return
 
 	############################## Argument -imap
-	# pour faciliter les tests
-	hostname = 'imap.gmail.com'
-	username = 'chucknorrism1luminy@gmail.com'
-	password = 'm1luminy'
-
 	if flag_imap == True:
 		launcher_imap.connectImap(hostname=hostname,username=username,password=password)
 	else:
