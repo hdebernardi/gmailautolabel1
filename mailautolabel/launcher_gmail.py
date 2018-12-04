@@ -75,10 +75,11 @@ def connectGmail(username,label=None,fenetre=None):
     Si ce n'est pas la première connection, soit on réentraine le modèle, soit on appelle la fonction de ML et on labélise les mails.
     """
     #On se connecte au service de gmail
-    store = file.Storage('token.json')
+    print("CONNEXION AU SERVEUR DE GMAIL")
+    store = file.Storage('gmail/token.json')
     creds = store.get()
     if not creds or creds.invalid:
-        flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
+        flow = client.flow_from_clientsecrets('gmail/credentials.json', SCOPES)
         creds = tools.run_flow(flow, store)
     service = build('gmail', 'v1', http=creds.authorize(Http()))
    
@@ -94,7 +95,7 @@ def connectGmail(username,label=None,fenetre=None):
         	#Réentrainer l'IA
         	if(choix == "1"):
             		creerCsv(username,service)
-        		#Labéliser les mails
+        	#Labéliser les mails
         	else:
             		print("--------------------------------------")
             		print("MACHINE LEARNING")
@@ -103,16 +104,19 @@ def connectGmail(username,label=None,fenetre=None):
             		print("--------------------------------------")
             		print("Labélisation des mails en cours")
             		for i in range(len(prediction)):
+                		print(i,"/",len(prediction))
                 		ajoutLabel(service = service,labelId = prediction[i],messageId = mails_nonlab[i]['id'])
     	else:
     	    if askyesno("Entrainement de l'IA", "Désirez-vous réentrainer votre IA ?"):
+    	       	label['text'] += "IA Entrainée !"
+    	        label.pack()
     	        creerCsv(username,service,label=label,fenetre=fenetre)
     	        label['text'] += "IA Entrainée !"
-        		#Labéliser les mails
     	    else:
         	    label['text'] = "--------------------------------------"
         	    label['text'] += "\n"
         	    label['text'] += "MACHINE LEARNING"
+        	    print("on apprend")
         	    mails_nonlab = csv_helper.toDict("NON_LABEL"+username)
         	    prediction = ml.supervised.supervisedWithNolabellingMail(username)
         	    label['text'] += "\n"
@@ -121,6 +125,4 @@ def connectGmail(username,label=None,fenetre=None):
         	    label['text'] += "Labélisation des mails en cours"
         	    for i in range(len(prediction)):
         	    	ajoutLabel(service = service,labelId = prediction[i],messageId = mails_nonlab[i]['id'])
-
-
-    
+        	    	label['text'] += str(i)+"/"+str(len(prediction))+"\n"

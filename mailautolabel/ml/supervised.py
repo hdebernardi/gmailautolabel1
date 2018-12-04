@@ -19,6 +19,7 @@ from sklearn.metrics import confusion_matrix, precision_score
 import csv_helper
 import sys
 import csv
+import os
 
 ##############################################################
 
@@ -36,9 +37,11 @@ def supervisedWithNolabellingMail(username):
 
 	#On récupère les mails non labélisés
 	filename = csv_helper.getPath("NON_LABEL"+username)
-	print(filename)
-	#sys.exit(0)
-	df2 = pandas.read_csv(filename, sep=",", engine="python", header=0)
+	try:
+		df2 = pandas.read_csv(filename, sep=",", engine="python", header=0)
+	except ValueError:
+		print("Tous vos mails possèdent déjà un label ! \nAttendez d'avoir de nouveaux mails à labéliser.")
+		sys.exit(0)
 
 	#On prépare les arguments
 	X = df.drop(['Folder'], axis=1)

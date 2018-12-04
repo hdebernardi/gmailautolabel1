@@ -41,6 +41,5 @@ def connectImap(hostname,username,password):
 	
 		csv_helper.saveMails(username, mails)
 		showMails(mails)
-		#applyMl(mails)
 
 

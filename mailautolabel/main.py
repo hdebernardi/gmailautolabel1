@@ -1,7 +1,7 @@
 import sys
 import launcher_gmail
 import launcher_imap
-from interface_graphique import affichageTexteSimple
+from graphics.interface_graphique import affichageTexteSimple
 
 ######################################################################
 def main():
