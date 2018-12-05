@@ -14,7 +14,7 @@ In order to use this project, you should already have installed :
 
 ### Libraries installation
 Then, just navigate at the root of this project and run :
-  - virtualenv env
+  - virtualenv -p python3 env
   - source env/bin/activate
   - make
 
