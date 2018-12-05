@@ -1,6 +1,6 @@
 # install required modules
 all:
-	pip3 install -r requirements.txt
+	pip install -r requirements.txt
 
 # clean all including virtual environment
 clean_all:
