@@ -22,12 +22,15 @@ def gmailLabelisation(service,username,label =None,fenetre = None):
 	mails_nonlab = csv_helper.toDict("NON_LABEL"+username)
 
 	prediction = ml.supervised.supervisedWithNolabellingMail(username)
-	if(prediction == "NON_LABEL VIDE"):
+	affiche("--------------------------------------\n",0,label ,fenetre)
+
+	if(prediction.all() == "1"):
 		affiche("Tous vos mails possèdent déjà un label ! \nAttendez d'avoir de nouveaux mails à labéliser.\n",0,label ,fenetre)
-	elif(prediction == "LABEL VIDE"):
+	elif(prediction.all() == "2"):
 		affiche("Votre boite mail ne contient aucun mail labélisé!\nTrier une première fois votre boite mail pour\n que la labélisation automatique soit possible\n",0,label ,fenetre)
+	elif(prediction.all() == "3"):
+		affiche("Votre boite mail ne contient pas assez de label!\nIl faut au moins 2 labels pour\n que la labélisation automatique soit possible\n",0,label ,fenetre)
 	else:
-		affiche("--------------------------------------\n",1,label,fenetre)
 		affiche("Labélisation des mails en cours\n",1,label,fenetre)
 		for i in range(len(prediction)):
 			affiche(str(i)+"/"+str(len(prediction)-1)+"\n" ,1,label,fenetre)
