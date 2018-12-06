@@ -26,10 +26,12 @@ To connect to gmail, you should follow these instructions :
 
 ### Running mailautolabel
 
-At this point you should be able to run the script :
-  - python3 mailautolabel/mail_extractor.py
-    - --extractor [imap or gmail, default gmail]
-  - python3 mailautolabel/mail_labelizer.py
-    - --user-interface
+- cd mailautolabel
+- python3 main.py
 
 The first connection will open a logging page in your web browser. Connect to your gmail account and autorize the application.
+
+### Running tests
+
+- cd mailautolabel
+- python3 -m unittest -v tests.nom_du_test
