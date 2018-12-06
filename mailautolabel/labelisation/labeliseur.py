@@ -24,12 +24,8 @@ def gmailLabelisation(service,username,label =None,fenetre = None):
 	prediction = ml.supervised.supervisedWithNolabellingMail(username)
 	affiche("--------------------------------------\n",0,label ,fenetre)
 
-	if(prediction.all() == "1"):
-		affiche("Tous vos mails possèdent déjà un label ! \nAttendez d'avoir de nouveaux mails à labéliser.\n",0,label ,fenetre)
-	elif(prediction.all() == "2"):
-		affiche("Votre boite mail ne contient aucun mail labélisé!\nTrier une première fois votre boite mail pour\n que la labélisation automatique soit possible\n",0,label ,fenetre)
-	elif(prediction.all() == "3"):
-		affiche("Votre boite mail ne contient pas assez de label!\nIl faut au moins 2 labels pour\n que la labélisation automatique soit possible\n",0,label ,fenetre)
+	if(prediction == False):
+		affiche("Erreur lors de l'apprentissage automatique:\n1)Votre boite mail doit contenir un minimum de deux labels avec des mails triés\n2)Votre boite mail doit contenir des mails pas encore labélisés\n",0,label ,fenetre)
 	else:
 		affiche("Labélisation des mails en cours\n",1,label,fenetre)
 		for i in range(len(prediction)):
