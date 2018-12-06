@@ -1,5 +1,5 @@
 import re
-from graphics.interface_graphique import affiche
+from graphics.affichage_graphique import affiche
 import dateutil.parser as parser
 import base64
 from bs4 import BeautifulSoup

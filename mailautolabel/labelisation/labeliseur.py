@@ -1,6 +1,6 @@
 import ml.supervised
 import csv_helper
-from  graphics.interface_graphique import affiche
+from  graphics.affichage_graphique import affiche
 import sys
 
 #######################################################################
