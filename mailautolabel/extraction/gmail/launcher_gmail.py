@@ -22,10 +22,14 @@ def extracteur(username,service,type_extraction,label=None,fenetre=None):
             labelisedMails.append(msg)
         else:
             unlabelisedMails.append(msg)
-
-    csv_helper.saveMails("NON_LABEL"+username,unlabelisedMails)
-    if(type_extraction == "TOUT"):
+	
+    if(type_extraction == "NON_LABEL"):
+        csv_helper.saveMails("NON_LABEL"+username,unlabelisedMails)
+    else:
         csv_helper.saveMails(username, labelisedMails)
+
+    return(labelisedMails,unlabelisedMails)
+	
 
 #######################################################################
 #  			 Fonction principale                          #
