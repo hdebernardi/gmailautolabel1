@@ -1,0 +1,5 @@
+Pas de panique si tout a bougé, il n'y a presque pas de nouveau code.
+En faisant les tests avec Astou on s'est rendu compte que c'était long et compliqué sur les grosses fonctions.
+Du coup on a séparé le programme en fonctions plus petite et donc plus facile à tester.
+Les tests ont été remonnés comme il faut, et normalement la doc Hippolyte a trouvé comment la générer donc il n'y 
+aura pas tout a réecrire.
