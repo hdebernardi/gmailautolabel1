@@ -98,11 +98,7 @@ def getMails(connection, verbose=False):
 	folders = getFolders(connection, verbose)
 
 	# on recherche des messages dans tous les dossiers
-	i = 0
 	for folder in folders:
-		i+=1
-		if(i == 3):
-			break
 		if(verbose):
 			print('Selecting folder', folder)
 
