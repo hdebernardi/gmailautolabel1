@@ -5,5 +5,4 @@ Bugs :
   Mais une fois que les fichiers csv sont enregistrés tout roule.
   
  -Lors du lancement des tests quand j'essaye de lancer touts les tests en meme temps avec la commande 
- g15023899@L-662722FORM-02:~/mailautolabel/mailautolabel/tests$ python3 -m unittest: il marche pas. C'est une probléme d'importation.
-  
+ g15023899@L-662722FORM-02:~/mailautolabel/mailautolabel/tests$ python3 -m unittest: il ne marche pas. C'est une probléme d'importation car il demande "import extraction.gmail.connection as connection" qui est déja fait
