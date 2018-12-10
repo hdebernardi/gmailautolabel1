@@ -10,6 +10,13 @@ SCOPES = 'https://www.googleapis.com/auth/gmail.modify'
 
 ###########################################################################
 #On se connecte au service de gmail
+'''def open(hostname, username, password, verbose=False):
+    -Ouvre une connection vers une boite mail.
+    -Paramètres :
+        -hostname : nom du serveur auquel nous voulons nous connecter (ex : gmail, aol).
+        -username : identifiant de l'utilisateur de la boite mail.
+        -password : mot de passe de l'utilisateur de la boite mail.
+    -Retourne la connexion avec le serveur en IMAP.'''
 def open():
     print("CONNEXION AU SERVEUR DE GMAIL")
     store = file.Storage('extraction/gmail/configuration_files/token.json')
