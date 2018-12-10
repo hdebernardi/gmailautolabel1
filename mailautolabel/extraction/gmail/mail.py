@@ -12,6 +12,14 @@ import sys
 #######################################################################
 
 def clearBody(part_data):
+    '''  
+    def extraitInfoMsg(service,message):
+        -Nettoie le corps du mail en le décodant depuis base64.
+        -Paramètre :
+            -part_data : Corps du mail en base64.
+        -Renvoie message, le corps du text traité.
+    
+    '''   
     # decode depuis Base64 vers UTF-8
     clean_one = part_data.replace("-","+")
     # decode depuis Base64 vers UTF-8
@@ -27,6 +35,22 @@ def clearBody(part_data):
 #######################################################################
 
 def extraitInfoMsg(service,message):
+    '''
+    def extraitInfoMsg(service,message):
+        -Extrait les informations utiles du message vers un dictionnaire temp_dict.
+        -Paramètres:
+            -service : service de messagerie utilisé (ex : gmail)
+            -message : un mail, avec toutes ses informations.
+        -Renvoie temp_dict, contenant :
+            -id : L'identifiant du message.
+            -Label : Liste des labels du mail.
+            -Folder : Label mis par l'utilisateur (si vide = False).
+            -Subject : Objet du mail.
+            -Date : Date du mail au format YYYY-MM-DD.
+            -Sender : Expéditeur du mail.
+            -Snippet : Snippet du message.
+            -Message_body : Corps du message, après traitement.
+    '''   
     user_id = 'me'
     temp_dict = {} 
 
