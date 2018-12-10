@@ -36,14 +36,18 @@ def supervisedWithNolabellingMail(username):
 	try:
 		df = pandas.read_csv(filename, sep=",", engine="python", header=0)
 	except ValueError:
-		return False
+		t = []
+		t.append(0)
+		return t
 
 	#On récupère les mails non labélisés
 	filename = csv_helper.getPath("NON_LABEL"+username)
 	try:
 		df2 = pandas.read_csv(filename, sep=",", engine="python", header=0)
 	except ValueError:
-		return False
+		t = []
+		t.append(0)
+		return t
 
 	#On prépare les arguments
 	X = df.drop(['Folder'], axis=1)
@@ -79,4 +83,6 @@ def supervisedWithNolabellingMail(username):
 		predicts = classifier.predict(X_test_vec)
 		return predicts
 	except ValueError:
-		return False
+		t = []
+		t.append(0)
+		return t
