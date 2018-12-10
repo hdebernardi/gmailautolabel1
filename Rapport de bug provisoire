@@ -4,3 +4,6 @@ Bugs :
  -Lors de la première connection, si on lance le programme avec l'option -graphics le programme plante.
   Mais une fois que les fichiers csv sont enregistrés tout roule.
   
+ -Lors du lancement des tests quand j'essaye de lancer touts les tests en meme temps avec la commande 
+ g15023899@L-662722FORM-02:~/mailautolabel/mailautolabel/tests$ python3 -m unittest: il marche pas. C'est une probléme d'importation.
+  
