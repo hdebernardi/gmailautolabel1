@@ -13,7 +13,7 @@ import sys
 
 def clearBody(part_data):
     '''  
-    def extraitInfoMsg(service,message):
+    def clearBody(part_data):
         -Nettoie le corps du mail en le décodant depuis base64.
         -Paramètre :
             -part_data : Corps du mail en base64.
