@@ -16,7 +16,8 @@ def clearBody(part_data):
 def extraitInfoMsg(service,message):
     -Extrait les informations utiles du message vers un dictionnaire temp_dict.
     -Paramètres:
-        -``service`` : servic
+        -``service`` : service de messagerie utilisé (ex : gmail)
+		-``message`` : un mail, avec toutes ses informations.
     -Renvoie temp_dict, contenant :
         -``id``: L'identifiant du message.
         -``Label`` : Liste des labels du mail.
