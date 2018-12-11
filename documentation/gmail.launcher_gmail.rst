@@ -16,7 +16,7 @@ def extracteur(username,service,type_extraction,label=None,fenetre=None):
          
             -``label`` : Zone de text de destination si en mode graphique, inexistant sinon.
          
-         -``fenetre`` : Fenetre de destination pour affichage si en mode graphique, inexistante sinon.
+            -``fenetre`` : Fenetre de destination pour affichage si en mode graphique, inexistante sinon.
          
         - Retourne un tuple :
             -``labelisedMails`` : la liste des mails labélisés.
