@@ -3,10 +3,5 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-TestInterface
+imap.connection
 ======================================
-
-**Ce fichier teste les fonction d'affichage graphique**
-
-def AffichageTexteSimple(texte):
-	-Test de la fonction testAffichageTexteSimple

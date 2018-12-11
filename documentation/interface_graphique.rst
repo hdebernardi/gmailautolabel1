@@ -3,17 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-InterfaceGraphique
+interface_graphique
 ======================================
 
 
 **Ce fichier gère l'affichage graphique et la récupération et gestions des labels et mails**
 
-
-def triMail(lab,texte):
-	- La fonction se sert à recuperer le label (zone de texte) et ecris "texte" dedans
-	 
-	 
 def affichageTexteSimple(texte):
 	- Toute cette partie n'est pas dans une fonction spécifique pour pouvoir accéder au variable graphique dans tout le programme
 	- Cette partie gère seulement l'affichage graphique

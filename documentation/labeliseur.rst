@@ -3,12 +3,5 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-unsupervised
+labeliseur
 ======================================
-
-
-**Ce fichier..**
-
-
-def get_scores(data):
-	- Cette fonction fait..

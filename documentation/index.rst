@@ -9,13 +9,24 @@ Welcome to GmailAddon's documentation!
 .. toctree::
    :maxdepth: 2
 
+   gmail.connection
+   gmail.launcher_gmail
+   gmail.mail
+
+   imap.connection
+   imap.launcher_imap
+   imap.mail
+   
+   affichage_graphique
    interface_graphique
-   test_interface
-   extraction_info_mail
-   recuperation_mail
-   connection
-   mail
+
+   labeliseur
+
    supervised
+
+   csv_helper
+   main
+
 
 Indices and tables
 ==================
