@@ -7,13 +7,13 @@ imap.launcher_imap
 ======================================
 
 def showMails(mails):
-	-Affiche la liste des mails.
-	-Paramètre:
+	- Affiche la liste des mails.
+	- Paramètre:
 		-``mails`` : la liste de mails.
 	
 def lancementImap(hostname,username,password):
-	-Lance la connexion en IMAP et affiche les mails récupérés.
-	-Paramètres:
+	- Lance la connexion en IMAP et affiche les mails récupérés.
+	- Paramètres:
 		-``hostname`` : nom du serveur.
 		-``username`` : identifiant de l'utilisateur (addresse mail).
         -``password`` : mot de passe de l'utilisateur.
