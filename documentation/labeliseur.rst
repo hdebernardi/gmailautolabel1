@@ -6,9 +6,25 @@
 labeliseur
 ======================================
 def ajoutLabel(service,labelId,messageId):
-    	-Pramètres :
+    	- Pramètres :
             -``service`` : service de messagerie utilisé (ex : gmail)
+            
             -``labelId`` : Identifiant deu label à ajouter.
+            
             -``messageId`` : identifiantdu mail à labéliser.
             
 def gmailLabelisation(service,username,label =None,fenetre = None):
+    	-	Démarre le machine learning sur la boite mail de l'utilisateur, 
+		    puis en fonction, labélise les mails non labélisés
+            
+        - Paramètres 
+            -``service`` : service de messagerie utilisé (ex : gmail)
+            
+            -``username`` : identifiant de l'utilisateur de la boite mail (addresse mail).
+            
+            -``label`` : Zone de text de destination si en mode graphique, inexistant sinon.
+            
+            -``fenetre`` : Fenetre de destination pour affichage si en mode graphique, inexistante sinon.
+            
+            
+            
