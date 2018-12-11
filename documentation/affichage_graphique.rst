@@ -6,7 +6,9 @@
 affichage_graphique
 ======================================
 def affiche(texte,suite,label=None,fenetre = None):
-   	- ``texte`` : texte à afficher.
-	- ``suite`` : si suite == 1 alors affiche le texte à la suite du texte déjà présent dans label, le remplace sinon
-	- ``label`` : Zone de text de destination si en mode graphique, inexistant sinon.
-	- ``fenetre`` : Fenetre de destination pour affichage si en mode graphique, inexistante sinon.
+	- Affiche un texte dans le label de la fenetre correspondante.
+	- Paramètre :
+		- ``texte`` : texte à afficher.
+		- ``suite`` : si suite == 1 alors affiche le texte à la suite du texte déjà présent dans label, le remplace sinon
+		- ``label`` : Zone de text de destination si en mode graphique, inexistant sinon.
+		- ``fenetre`` : Fenetre de destination pour affichage si en mode graphique, inexistante sinon.
