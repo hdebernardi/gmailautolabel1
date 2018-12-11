@@ -7,7 +7,7 @@ gmail.launcher_gmail
 ======================================
 def extracteur(username,service,type_extraction,label=None,fenetre=None):
     Créer un fichier csv pour les mails déjà labélisés et
-    	-Paramètres :
+    	- Paramètres :
     	    -``username`` : identifiant de l'utilisateur (addresse mail).
          
             -``service`` : la connection avec la boite Gmail.
