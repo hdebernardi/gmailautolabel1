@@ -5,6 +5,7 @@
 
 imap.connection
 ======================================
+
 def open(hostname, username, password, verbose=False):
     -Ouvre une connection vers une boite mail.
     -Paramètres :
