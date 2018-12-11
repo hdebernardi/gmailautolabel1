@@ -1,1 +1,0 @@
-from .labeliseur import ajoutLabel, gmailLabelisation

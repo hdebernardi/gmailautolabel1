@@ -6,10 +6,10 @@ import graphics.interface_graphique as graphics
 ######################################################################
 def main():
 	"""
-		Gère les arguments entrés par l'utilisateur.
-		-graphics : Appelle l'interface graphique
-		-imap : Appelle le launcher imap
-		Sans arguments: Appel le launcher gmail
+	-Gère les arguments entrés par l'utilisateur.
+	-Paramètres :
+		-``graphics`` : Appelle l'interface graphique
+		-``imap``: Appelle le launcher imap, sans arguments: appelle le launcher gmail
 	"""
 	
 	print("----------------GMAIL AUTOLABEL 1----------------------")

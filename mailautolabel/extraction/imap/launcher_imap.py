@@ -13,7 +13,7 @@ def showMails(mails):
 	"""
 	-Affiche la liste des mails.
 	-Paramètre:
-		-```mails``` : la liste de mails.
+		-``mails`` : la liste de mails.
 	"""
 	for mail in mails:
 		print('-'*80)

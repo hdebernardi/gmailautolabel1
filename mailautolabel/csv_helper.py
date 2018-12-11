@@ -4,10 +4,13 @@ import os
 #######################################################################
 def getPath(username):
     """
-    Renvoie le chemin absolu du fichier "username".csv
-    - Note:
-        cheminFich = 'data/{}.csv'.format(username) 
-    Cela fonctionne mais probablement pas sur tout les OS
+    - Renvoie le chemin absolu du fichier "username".csv
+        -   Note:
+            cheminFich = 'data/{}.csv'.format(username) 
+            Cela fonctionne mais probablement pas sur tout les OS
+    - Paramètre :
+        - ``username`` : identifiant de l'ulisateur (addresse mail).
+    - Retourne ``abs_path``, le chemin absolu du fichier "username".csv.
     """
     # Donne le chemin absolu d'où le script est démarré
     root = os.getcwd() 
@@ -21,7 +24,9 @@ def getPath(username):
 #######################################################################
 def isPresent(username):
     """
-    Retourne 1 si le chemin "username".csv est présent, 0 sinon
+    - Retourne 1 si le chemin "username".csv est présent, 0 sinon
+    - Paramètre :
+        - ``username`` : identifiant de l'ulisateur (addresse mail).
     """
     filepath = getPath(username) 
     #Nous testons si le fichier est présent en essayant de l'ouvrir
@@ -36,7 +41,9 @@ def isPresent(username):
 ######################################################################
 def toDict(username):
     """
-    Retourne un dictionnaire depuis un fichier csv
+    - Retourne un dictionnaire depuis un fichier csv
+    - Paramètre :
+        - ``username`` : identifiant de l'ulisateur (addresse mail).
     """
     rv = []
     filepath = getPath(username)
@@ -53,7 +60,10 @@ def toDict(username):
 import pandas as pd
 def saveMails(username, mails):
 	"""
-    Créer un fichier csv depuis un dictionnaire
+    - Créer un fichier csv depuis un dictionnaire
+    - Paramètres :
+        - ``username`` : identifiant de l'ulisateur (addresse mail).
+        - ``mails`` : liste des mails de la boite de l'utilisateur.
 	"""
 	filepath = getPath(username)
 	df = pd.DataFrame(mails)

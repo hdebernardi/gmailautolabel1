@@ -1,2 +1,0 @@
-from .affichage_graphique import affiche
-from .interface_graphique import affichageTexteSimple
