@@ -47,9 +47,9 @@ def lancementGmail(label=None,fenetre=None):
 	-	Ce connecte au service de Gmail.
 		Si c'est la première connection de l'utilisateur, crée un fichier csv pour les mails labélisés et non labélisés.
 		Si ce n'est pas la première connection, soit on réentraine le modèle, soit on appelle la fonction de ML et on labélise les mails.
-	-Paramètres :
-		-``label`` : Zone de text de destination si en mode graphique, inexistant sinon.
-        -``fenetre`` : Fenetre de destination pour affichage si en mode graphique, inexistante sinon.
+	- Paramètres :
+		- ``label`` : Zone de text de destination si en mode graphique, inexistant sinon.
+        - ``fenetre`` : Fenetre de destination pour affichage si en mode graphique, inexistante sinon.
 	"""
 	service = connection.open()
 
