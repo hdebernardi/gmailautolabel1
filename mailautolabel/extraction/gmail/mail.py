@@ -128,7 +128,10 @@ def recupAllMessages(service,type_extraction):
 
     while 'nextPageToken' in response:
       page_token = response['nextPageToken']
-      response = service.users().messages().list(userId='me', pageToken=page_token).execute()
+      if(type_extraction == "NON_LABEL"):
+          response = service.users().messages().list(userId='me',labelIds=['INBOX'],pageToken=page_token).execute()
+      else:
+          response = service.users().messages().list(userId='me',pageToken=page_token).execute()
       messages.extend(response['messages'])
 
     return messages
