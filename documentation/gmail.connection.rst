@@ -8,4 +8,5 @@ gmail.connection
 
 def open():
     - Ouvre une connection vers une boite mail.
+	
 	- Retourne la ``connexion`` avec le serveur en GMAIL.
