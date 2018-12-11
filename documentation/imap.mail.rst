@@ -20,4 +20,40 @@ def getHeader(mail):
 def getFlags(mail):
 	- Récupère les labels du mail.
 	- Paramètre :
-		* ``mail`
+		* ``mail`def getBody(mail):
+	- Récupère le corps du mail.
+	- Paramètre :
+		* ``mail`` : Un mail.
+	- Retourne le dictionnaire ``dict_to_return`` contenant le corps du message.
+	- Retourne le dictionnaire ``dict_to_return`` contenant la liste des labels.
+
+def getBody(mail):
+	- Récupère le corps du mail.
+	- Paramètre :
+		* ``mail`` : Un mail.
+	- Retourne le dictionnaire ``dict_to_return`` contenant le corps du message.
+	
+def getFolders(connection, verbose=False):
+	- Récupère les dossiers présents dans la boite mail.
+	- Paramètres :
+		* ``connection`` : une connection vers une boite mail.
+		* ``verbose`` : permet d'afficher ce que la fonction fait (default = False).
+	- Retourne ``folders``, la liste des dossiers.
+	
+def getMails(connection, verbose=False):
+	- Récupère les mails présents dans une boite mail en utilisant les fonctions précédentes.
+	- Paramètres :
+		* ``connection`` : une connection vers une boite mail.
+		* ``verbose`` : permet d'afficher ce que la fonction fait (default = False).
+	- Retourne ``all_messages``, une liste de mails.
+	
+def getUsefulPartsOfMails(mails):
+	- Ne récupère seulment les parties utiles des mails.
+	- Paramètre :
+		* ``mails`` : une liste de mails.
+	- Retourne ``all_mails``, la liste des mails traitée.
+
+
+
+
+	
