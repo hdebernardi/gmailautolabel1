@@ -5,3 +5,42 @@
 
 gmail.mail.rst
 ======================================
+**Traite les mails en utilisant IMAP**
+
+def decodeHtml(html):
+	- Decode du text au format html en un text simple sans format.
+	- Paramètre :
+		* ``html`` : Un text au format html.
+	- Renvoie ``text``, le text html décodé.
+	
+
+def getHeader(mail):
+	- Récupère l'entète du mail.
+	- Paramètre :
+		* ``mail`` : Un mail.
+	- Retourne ``dict_to_return`` contenant l'entète du mail.
+	
+	
+def getFlags(mail):
+	- Récupère les labels du mail.
+	- Paramètre :
+		* ``mail`` : un mail.
+	- Retourne le dictionnaire ``dict_to_return`` contenant la liste des labels.
+	
+	
+def getBody(mail):
+	- Récupère le corps du mail.
+	- Paramètre :
+		* ``mail`` : Un mail.
+	- Retourne le dictionnaire ``dict_to_return`` contenant le corps du message.
+	
+	
+def getFolders(connection, verbose=False):
+	- Récupère les dossiers présents dans la boite mail.
+	- Paramètres :
+		* ``connection`` : une connection vers une boite mail.
+		* ``verbose`` : permet d'afficher ce que la fonction fait (default = False).
+	- Retourne ``folders``, la liste des dossiers.
+	
+	
+def getMails(connection, verbose=False):
