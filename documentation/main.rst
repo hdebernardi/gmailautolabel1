@@ -13,4 +13,4 @@ def main():
 
 		-``graphics`` : Appelle l'interface graphique
       
-      -``imap``: Appelle le launcher imap, sans arguments: appelle le launcher gmail
+      		-``imap``: Appelle le launcher imap, sans arguments: appelle le launcher gmail
