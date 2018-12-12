@@ -1,37 +1,32 @@
 # mailautolabel
 
-## Quick start
+## A quoi sert le logiciel ?
 
-### Requirements
+Le logiciel mailautolabel est un classifieur automatique de mails. Il se connecte à une messagerie Gmail, récupère les mails et les dossiers et les envoient dans un algorithme de machine learning. A la fin de cet algorithme, tous les mails qui ne possèdent pas un label sont classés automatiquement avec le label leurs correspondant le plus.
 
-In order to use this project, you should already have installed :
-  - python3
-    - https://www.python.org/
-  - virtualenv
-    - https://virtualenv.pypa.io/en/latest/
-  - make
-    - https://www.gnu.org/software/make/
+## Comment l'installer ?
 
-### Libraries installation
-Then, just navigate at the root of this project and run :
-  - virtualenv -p python3 env
-  - source env/bin/activate
-  - make
+### Prérequis
 
-### Connection to Gmail API
+Pour utiliser ce projet, vous devez déjà avoir installé:
 
-To connect to gmail, you should follow these instructions :
-  - https://developers.google.com/gmail/api/quickstart/python
-  - although the whole page is interesting, you could only follow step 1 to have a working project
+    python3
+        https://www.python.org/
+    virtualenv
+        https://virtualenv.pypa.io/en/latest/
+    make
+        https://www.gnu.org/software/make/
 
-### Running mailautolabel
+### Installation des librairies
 
-- cd mailautolabel
-- python3 main.py
+Ensuite, naviguez simplement à la racine de ce projet et exécutez:
 
-The first connection will open a logging page in your web browser. Connect to your gmail account and autorize the application.
+    virtualenv -p python3 env
+    source env/bin/activate
+    make
 
-### Running tests
+## Comment le lancer ?
 
-- cd mailautolabel
-- python3 -m unittest -v tests.nom_du_test
+    cd mailautolabel
+    python3 main.py
+
