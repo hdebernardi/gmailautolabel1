@@ -9,4 +9,4 @@ def main():
 	- Gère les arguments entrés par l'utilisateur.
 	- Paramètres :
 		- ``graphics`` : Appelle l'interface graphique
-      		- ``imap`` : Appelle le launcher imap, sans arguments: appelle le launcher gmail
+		- ``imap`` : Appelle le launcher imap, sans arguments: appelle le launcher gmail

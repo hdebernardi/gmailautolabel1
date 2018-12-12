@@ -6,17 +6,17 @@
 imap.mail
 ======================================
 def decodeHtml(html):
-    	- Decode du text au format html en un text simple sans format.
-        - Paramètre :
-        		* ``html`` : Un text au format html.    
-        - Renvoie ``text``, le text html décodé.
-        
+		- Decode du text au format html en un text simple sans format.
+		- Paramètre :
+				* ``html`` : Un text au format html.    
+		- Renvoie ``text``, le text html décodé.
+		
 def getHeader(mail):
-        - Récupère l'entète du mail.
-        - Paramètre :
-        		* ``mail`` : Un mail.
-        - Retourne ``dict_to_return`` contenant l'entète du mail.
-        
+		- Récupère l'entète du mail.
+		- Paramètre :
+				* ``mail`` : Un mail.
+		- Retourne ``dict_to_return`` contenant l'entète du mail.
+		
 def getFlags(mail):
 	- Récupère les labels du mail.
 	- Paramètre :
