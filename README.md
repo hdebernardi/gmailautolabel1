@@ -1,4 +1,5 @@
 # mailautolabel
+Toutes les informations sont détaillées dans le wiki. Vous trouverez ci dessous un résumé très restreint de l'utilisation du logiciel.
 
 ## A quoi sert le logiciel ?
 
