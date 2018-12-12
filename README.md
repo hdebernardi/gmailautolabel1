@@ -10,23 +10,28 @@ Le logiciel mailautolabel est un classifieur automatique de mails. Il se connect
 
 Pour utiliser ce projet, vous devez déjà avoir installé:
 
-    python3
-        https://www.python.org/
-    virtualenv
-        https://virtualenv.pypa.io/en/latest/
-    make
-        https://www.gnu.org/software/make/
+python3
+     https://www.python.org/
+     
+virtualenv
+    https://virtualenv.pypa.io/en/latest/
+
+make
+     https://www.gnu.org/software/make/
 
 ### Installation des librairies
 
 Ensuite, naviguez simplement à la racine de ce projet et exécutez:
 
-    virtualenv -p python3 env
-    source env/bin/activate
-    make
+ -virtualenv -p python3 env
+ 
+ -source env/bin/activate
+ 
+ -make
 
 ## Comment le lancer ?
 
-    cd mailautolabel
-    python3 main.py
+ -cd mailautolabel
+ 
+ -python3 main.py
 
