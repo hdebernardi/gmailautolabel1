@@ -167,8 +167,11 @@ def allMessage(service,type_extraction,label=None,fenetre=None):
     for mssg in messages:
         affiche(str(i)+"/"+str(len(messages))+"\n" ,1,label ,fenetre)
         i+=1
+        if(i==600 | i==300) :
+            affiche("",0,label ,fenetre)
         message = service.users().messages().get(userId=user_id, id=mssg['id']).execute()
         temp_dict = extraitInfoMsg(service=service,message=message)
         final_list.append(temp_dict)
-
+    
+    affiche("Téléchargement terminé !",0,label,fenetre)
     return final_list
