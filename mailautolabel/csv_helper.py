@@ -59,12 +59,12 @@ def toDict(username):
 ################################################################################
 import pandas as pd
 def saveMails(username, mails):
-	"""
+    """
     - Créer un fichier csv depuis un dictionnaire
     - Paramètres :
         - ``username`` : identifiant de l'ulisateur (addresse mail).
         - ``mails`` : liste des mails de la boite de l'utilisateur.
-	"""
-	filepath = getPath(username)
-	df = pd.DataFrame(mails)
-	df.to_csv(filepath)
+    """
+    filepath = getPath(username)
+    df = pd.DataFrame(mails)
+    df.to_csv(filepath)
