@@ -3,11 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-main
+connection
 ======================================
 
-**def main():**
-	- Gère les arguments entrés par l'utilisateur.
-	- Paramètres :
-		- ``graphics`` : Appelle l'interface graphique
-		- ``imap`` : Appelle le launcher imap, sans arguments: appelle le launcher gmail
+**def open():**
+    - Ouvre une connection vers une boite mail.
+    - Retourne la ``connexion`` avec le serveur en GMAIL.
+
