@@ -1,4 +1,3 @@
-imapclient
 chardet
 pandas
 numpy
