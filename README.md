@@ -36,3 +36,5 @@ Ensuite, naviguez simplement à la racine de ce projet et exécutez:
  
  -python3 main.py
 
+## Le projet évolue !
+https://github.com/hdebernardi/MailAutoLabel
